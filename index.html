@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claudster — every Claude Code session, on one page</title>
+<meta name="description" content="A small macOS menu bar app that shows which Claude Code sessions are working, finished, or waiting on you — on your Mac and on your phone.">
+<meta property="og:title" content="Claudster">
+<meta property="og:description" content="Every Claude Code session, on one page.">
+<meta property="og:image" content="assets/mascot-awake.jpg">
+<meta name="theme-color" content="#efe4d8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1d1714" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<style>
+  :root {
+    --paper: #efe4d8;
+    --paper-raised: #f7efe6;
+    --ink: #2e211a;
+    --ink-soft: #6b5548;
+    --ink-faint: #8f7a6c;
+    --clay: #c9622f;
+    --clay-strong: #b4521f;
+    --on-clay: #fff8f2;
+    --hairline: oklch(0 0 0 / 0.1);
+    --outline: oklch(0 0 0 / 0.1);
+    --shadow: 0 1px 2px oklch(0.3 0.04 50 / 0.08), 0 8px 24px oklch(0.3 0.04 50 / 0.10);
+    --dot-waiting: #e8890c;
+    --dot-error: #d93a2b;
+    --dot-working: #2f7ae0;
+    --dot-done: #a59a90;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #1d1714;
+      --paper-raised: #28201b;
+      --ink: #f3e9df;
+      --ink-soft: #c7b6a8;
+      --ink-faint: #9b8a7d;
+      --clay: #e07a45;
+      --clay-strong: #ec8a55;
+      --on-clay: #1d1714;
+      --hairline: oklch(1 0 0 / 0.1);
+      --outline: oklch(1 0 0 / 0.1);
+      --shadow: 0 1px 2px oklch(0 0 0 / 0.3), 0 8px 24px oklch(0 0 0 / 0.35);
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 17px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1, h2, h3, .brand { font-family: ui-rounded, "SF Pro Rounded", -apple-system, system-ui, sans-serif; }
+  h1, h2, h3 { text-wrap: balance; margin: 0; }
+  p { text-wrap: pretty; margin: 0; }
+  a { color: inherit; }
+
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+  /* Header */
+  header { padding: 20px 0; }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; font-size: 19px; text-decoration: none; min-height: 44px; }
+  .brand img { width: 32px; height: 32px; border-radius: 8px; }
+  .nav-link {
+    display: inline-flex; align-items: center; min-height: 44px; padding: 0 4px;
+    color: var(--ink-soft); text-decoration: none; font-weight: 500;
+    transition-property: color; transition-duration: 150ms;
+  }
+  .nav-link:hover { color: var(--ink); }
+
+  /* Hero */
+  .hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 420px); gap: 56px; align-items: center; padding: 40px 0 72px; }
+  .hero h1 { font-size: clamp(38px, 5.6vw, 60px); line-height: 1.05; letter-spacing: -0.02em; }
+  .lede { margin-top: 20px; font-size: 20px; color: var(--ink-soft); max-width: 34em; }
+  .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-top: 32px; }
+  .button {
+    display: inline-flex; align-items: center; gap: 10px;
+    min-height: 48px; padding: 0 22px; border-radius: 14px;
+    background: var(--clay); color: var(--on-clay);
+    font-weight: 600; text-decoration: none;
+    box-shadow: var(--shadow);
+    transition-property: background-color, scale; transition-duration: 150ms; transition-timing-function: ease-out;
+  }
+  .button:hover { background: var(--clay-strong); }
+  .button:active { scale: 0.96; }
+  .button svg { width: 18px; height: 18px; flex: none; }
+  .fineprint { color: var(--ink-faint); font-size: 14px; }
+  .button:focus-visible, .nav-link:focus-visible, .brand:focus-visible, .text-link:focus-visible, .mascot:focus-visible {
+    outline: 2px solid var(--clay); outline-offset: 3px;
+  }
+
+  .mascot {
+    position: relative; display: block; width: 100%; padding: 0; border: 0; cursor: pointer;
+    aspect-ratio: 1; border-radius: 28px; overflow: hidden;
+    background: #e8d8cb;
+    box-shadow: var(--shadow);
+  }
+  .mascot::after { content: ""; position: absolute; inset: 0; border-radius: inherit; outline: 1px solid var(--outline); outline-offset: -1px; pointer-events: none; }
+  .mascot video, .mascot img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+  /* Features */
+  section h2 { font-size: clamp(28px, 3.6vw, 36px); letter-spacing: -0.01em; }
+  .section-lede { margin-top: 10px; color: var(--ink-soft); max-width: 40em; }
+  .features { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 32px; }
+  .feature {
+    background: var(--paper-raised); border-radius: 20px; padding: 22px 22px 24px;
+    box-shadow: 0 0 0 1px var(--hairline);
+  }
+  .feature h3 { font-size: 19px; display: flex; align-items: center; gap: 10px; }
+  .feature p { margin-top: 8px; color: var(--ink-soft); font-size: 16px; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+
+  .steps { counter-reset: step; list-style: none; padding: 0; margin: 32px 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  .steps li { counter-increment: step; padding-top: 14px; border-top: 1px solid var(--hairline); }
+  .steps li::before { content: counter(step); display: block; font: 600 14px/1 ui-rounded, system-ui; color: var(--clay); font-variant-numeric: tabular-nums; margin-bottom: 10px; }
+  .steps strong { display: block; font-size: 17px; }
+  .steps span { color: var(--ink-soft); font-size: 16px; }
+
+  .band { padding: 72px 0; border-top: 1px solid var(--hairline); }
+
+  .cta { text-align: center; }
+  .cta .actions { justify-content: center; }
+
+  footer { padding: 40px 0 56px; border-top: 1px solid var(--hairline); color: var(--ink-faint); font-size: 14px; }
+  footer p + p { margin-top: 8px; }
+  .text-link { color: var(--ink-soft); text-underline-offset: 3px; }
+
+  @media (max-width: 860px) {
+    .hero { grid-template-columns: 1fr; gap: 32px; padding-top: 16px; }
+    .hero .mascot { max-width: 360px; order: -1; margin: 0 auto; }
+    .hero-text { text-align: center; }
+    .lede { margin-left: auto; margin-right: auto; }
+    .actions { justify-content: center; }
+    .features, .steps { grid-template-columns: 1fr; }
+  }
+  @media (min-width: 861px) and (max-width: 1000px) {
+    .features { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 480px) {
+    .wrap { padding: 0 16px; }
+    .lede { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="./"><img src="assets/icon-256.png" alt="" width="32" height="32">Claudster</a>
+    <a class="nav-link" href="https://github.com/fbmore/claudster-app/releases">Releases</a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Every Claude Code session, on one page.</h1>
+        <p class="lede">A small menu bar app for macOS that shows which sessions are working, which are done, and which are waiting on you. On your Mac, and on your phone.</p>
+        <div class="actions">
+          <a class="button" href="https://github.com/fbmore/claudster-app/releases/latest">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3v10M5.5 8.5 10 13l4.5-4.5M4 16.5h12"/></svg>
+            Download for Mac
+          </a>
+          <span class="fineprint">macOS 14 or later · Apple silicon and Intel</span>
+        </div>
+      </div>
+      <button class="mascot" type="button" id="mascot" aria-label="Play the Claudster mascot waking up">
+        <video id="mascot-video" muted playsinline preload="auto" poster="assets/mascot-asleep.jpg" aria-hidden="true">
+          <source src="assets/mascot.mp4" type="video/mp4">
+        </video>
+      </button>
+    </section>
+  </div>
+
+  <section class="band">
+    <div class="wrap">
+      <h2>Know which one needs you</h2>
+      <p class="section-lede">Start work in three projects, step away, and find out in five seconds which one is blocked and what it wants.</p>
+      <div class="features">
+        <div class="feature">
+          <h3><span class="dot" style="background: var(--dot-waiting)"></span>Waiting on you, first</h3>
+          <p>Sessions blocked on a question or a permission go to the top, with the question itself.</p>
+        </div>
+        <div class="feature">
+          <h3><span class="dot" style="background: var(--dot-working)"></span>On your phone</h3>
+          <p>Scan a QR code and the same live page opens on your phone over your Wi‑Fi. Nothing leaves your network.</p>
+        </div>
+        <div class="feature">
+          <h3><span class="dot" style="background: var(--dot-done)"></span>Back to the terminal</h3>
+          <p>Focus brings the right Terminal or iTerm tab forward. Send a follow-up from the card and the session picks it up.</p>
+        </div>
+        <div class="feature">
+          <h3><span class="dot" style="background: var(--clay)"></span>Every project looks like itself</h3>
+          <p>Cards wear each project's app icon and brand color, found in the repo. Screenshots of the work, when you want them.</p>
+        </div>
+        <div class="feature">
+          <h3><span class="dot" style="background: var(--dot-error)"></span>Menu bar and Dock</h3>
+          <p>A dot shows the most serious state at a glance. The menu lists every project; click one to jump to its terminal.</p>
+        </div>
+        <div class="feature">
+          <h3><span class="dot" style="background: var(--dot-working)"></span>Labelled Terminal tabs</h3>
+          <p>Optionally titles each Terminal tab with its state and project, and puts the app icon on the project folder.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <h2>Set up in a minute</h2>
+      <ol class="steps">
+        <li><strong>Download and open</strong><span>Drag Claudster to Applications. It's signed and notarized, and lives in the menu bar.</span></li>
+        <li><strong>Install the hooks</strong><span>Settings › Claude Code › Install. Sessions already running start reporting, with no restart.</span></li>
+        <li><strong>Get back to work</strong><span>Leave the room. Claudster tells you when something needs you.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="band cta">
+    <div class="wrap">
+      <h2>Get Claudster</h2>
+      <div class="actions">
+        <a class="button" href="https://github.com/fbmore/claudster-app/releases/latest">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3v10M5.5 8.5 10 13l4.5-4.5M4 16.5h12"/></svg>
+          Download Claudster
+        </a>
+        <a class="text-link" href="https://github.com/fbmore/claudster-app/releases">All releases and notes</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Made by Francesco Bertocci · © <span id="year">2026</span> FRANCESCO BERTOCCI, LLC</p>
+    <p>Claudster is an independent project and is not affiliated with, endorsed by, or sponsored by Anthropic. Claude and Claude Code are trademarks of Anthropic, PBC.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // The mascot wakes up once when it comes into view and stays grinning;
+  // a click plays it again. With reduced motion, it just shows the grin.
+  const button = document.getElementById("mascot");
+  const video = document.getElementById("mascot-video");
+  const still = matchMedia("(prefers-reduced-motion: reduce)");
+
+  function play() {
+    if (still.matches) return;
+    video.currentTime = 0;
+    video.play().catch(() => {});
+  }
+
+  if (still.matches) {
+    video.poster = "assets/mascot-awake.jpg";
+  } else if ("IntersectionObserver" in window) {
+    const seen = new IntersectionObserver((entries) => {
+      if (entries.some((e) => e.isIntersecting)) { play(); seen.disconnect(); }
+    }, { threshold: 0.5 });
+    seen.observe(button);
+  } else {
+    play();
+  }
+  button.addEventListener("click", play);
+</script>
+</body>
+</html>
