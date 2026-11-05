@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support · Claudster</title>
+<meta name="description" content="Help with installing and using Claudster.">
+<meta name="theme-color" content="#efe4d8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1d1714" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="stylesheet" href="page.css">
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="./"><img src="assets/icon-256.png" alt="" width="32" height="32">Claudster</a>
+    <nav aria-label="Site"><a href="support.html" aria-current="page">Support</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="https://github.com/fbmore/claudster-app/releases">Download</a></nav>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+
+    <h1>Support</h1>
+    <div class="contact">
+      <p>Something not working? Write with your macOS version, your Claudster version (Settings › About) and your terminal app.</p>
+      <a class="button" href="mailto:fbmore+claudster@gmail.com?subject=Claudster%20support">Email support</a>
+    </div>
+
+    <h2 id="install">Installing</h2>
+    <ol>
+      <li>Download the latest <code>.dmg</code> from <a href="https://github.com/fbmore/claudster-app/releases">Releases</a>, drag Claudster to Applications and open it. It needs macOS 14 or later, on Apple silicon or Intel.</li>
+      <li>The welcome guide opens after the splash. Its first step, <strong>Install</strong>, connects Claude Code. You can also do it any time in <strong>Settings › Claude Code › Install</strong>.</li>
+      <li>Claudster lives in the menu bar. Its dot shows the most urgent state across your projects.</li>
+    </ol>
+
+    <h2>A project doesn't show up</h2>
+    <ul>
+      <li>Claudster looks for Git repositories up to two levels inside the folders in <strong>Settings › Folders</strong> (by default <code>~/Developer</code>). Add the folder that holds your projects.</li>
+      <li>A card appears once a Claude Code session in that project has reported. Sessions already running start reporting after you install, with no restart needed.</li>
+      <li>Check that <strong>Settings › Claude Code</strong> says <em>Installed</em> and shows all hooks. If you moved the app, choose <strong>Repair Hooks</strong> in the menu.</li>
+    </ul>
+
+    <h2>Clicking a project doesn't bring its terminal forward</h2>
+    <ul>
+      <li>macOS needs to let Claudster control your terminal. Click <strong>Grant Automation Permission…</strong> in Settings › Claude Code and allow it, or turn it on in <strong>System Settings › Privacy &amp; Security › Automation › Claudster</strong>.</li>
+      <li>Focus works with Terminal, iTerm and tmux.</li>
+    </ul>
+
+    <h2>Opening the dashboard on your phone</h2>
+    <ul>
+      <li>Choose <strong>Show Phone QR Code…</strong> in the menu and scan it with your phone's camera. Your phone must be on the same Wi-Fi as your Mac.</li>
+      <li>If it doesn't load, check that <strong>Allow access from other devices on this network</strong> is on in Settings › General, and that macOS allowed Claudster on the local network (System Settings › Privacy &amp; Security › Local Network).</li>
+      <li>The link carries a private key. If someone else gets it, they can see your sessions; keep it to yourself.</li>
+    </ul>
+
+    <h2>Notifications</h2>
+    <p>Claudster notifies you when a session starts waiting on you or fails. Change how they appear in <strong>System Settings › Notifications › Claudster</strong>.</p>
+
+    <h2>Queue and Send now</h2>
+    <p>Type a task on a card and choose <strong>Queue</strong>: the session receives it at its next turn. <strong>Send now</strong> wakes an idle session by typing one fixed line into its terminal. It never types into a session that is waiting on a question, so it can't answer a prompt for you.</p>
+
+    <h2>Icons, colors and screenshots</h2>
+    <ul>
+      <li>Claudster finds each project's icon (an Xcode app icon, a favicon, or <code>.claude/icon.png</code> if you add one) and its brand color. Open a card's details on the dashboard to pick a different one.</li>
+      <li>When screenshots are on (Settings › Cards), Claude attaches screenshots of what it built, and cards also show images from the session.</li>
+    </ul>
+
+    <h2>Terminal tab labels and folder icons</h2>
+    <p>Both are optional, in <strong>Settings › Claude Code</strong>. <em>Label Terminal tabs</em> titles each Terminal tab with its state and project. Settings shows how to shorten Terminal's own tab titles so the label fits. <em>Put each project's icon on its folder</em> gives project folders their app icon in Finder and in Terminal's title bar.</p>
+
+    <h2 id="uninstall">Uninstalling completely</h2>
+    <ol>
+      <li>In Settings, turn off <em>Put each project's icon on its folder</em>, <em>Label Terminal tabs</em> and <em>Open Claudster at login</em>.</li>
+      <li>In <strong>Settings › Claude Code</strong>, click <strong>Remove</strong> to take Claudster's hooks and skill out of Claude Code.</li>
+      <li>Quit Claudster and move it to the Trash.</li>
+      <li>Delete <code>~/Library/Application Support/Claudster</code> and <code>~/Library/Caches/Claudster</code>.</li>
+      <li>Optionally, delete the <code>.claude/status.json</code>, <code>events.jsonl</code>, <code>queue.json</code> and <code>screenshots/</code> files in your projects, and the Claudster lines in <code>~/.config/git/ignore</code>.</li>
+    </ol>
+
+    <h2>Privacy</h2>
+    <p>Claudster collects nothing and sends nothing to us. Read the <a href="privacy.html">privacy policy</a> for exactly what it stores on your Mac.</p>
+
+  </div>
+</main>
+<footer>
+  <div class="wrap">
+    <p>© 2026 FRANCESCO BERTOCCI, LLC · <a href="support.html">Support</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="mailto:fbmore+claudster@gmail.com">fbmore+claudster@gmail.com</a></p>
+    <p>Claudster is an independent project and is not affiliated with, endorsed by, or sponsored by Anthropic. Claude and Claude Code are trademarks of Anthropic, PBC.</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy · Claudster</title>
+<meta name="description" content="Claudster runs entirely on your Mac and collects no data.">
+<meta name="theme-color" content="#efe4d8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1d1714" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="stylesheet" href="page.css">
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="./"><img src="assets/icon-256.png" alt="" width="32" height="32">Claudster</a>
+    <nav aria-label="Site"><a href="support.html">Support</a><a href="privacy.html" aria-current="page">Privacy</a><a href="terms.html">Terms</a><a href="https://github.com/fbmore/claudster-app/releases">Download</a></nav>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated November 5, 2026</p>
+    <p class="lead">Claudster runs entirely on your Mac. It has no account, no servers of ours, and no analytics. Nothing it handles is sent to us, ever.</p>
+
+    <div class="summary">
+      <strong>In short</strong>
+      <ul>
+        <li>We (FRANCESCO BERTOCCI, LLC) collect no data at all: no telemetry, crash reports, usage statistics or update checks.</li>
+        <li>Everything Claudster reads and writes stays on your Mac and in your own project folders.</li>
+        <li>The dashboard is served by your Mac to your own devices. Other devices need your private link to read it.</li>
+      </ul>
+    </div>
+
+    <h2>What Claudster reads</h2>
+    <p>To show what each Claude Code session is doing, Claudster reads files that are already on your Mac:</p>
+    <ul>
+      <li>The status files its helper writes in each project, at <code>.claude/status.json</code>.</li>
+      <li>Claude Code's local session transcripts in <code>~/.claude/projects/</code>, for the recap Claude Code writes and for images in the session (ones you pasted, and screenshots a tool returned), so a card can show them.</li>
+      <li>Claude Code's local image cache in <code>~/.claude/image-cache/</code>.</li>
+      <li>Files in your project folders that describe how a project looks (app icons, favicons, asset catalogs, CSS colors and web manifests), to give each card its icon and color.</li>
+      <li>The list of running processes and their working folders, to find which terminal runs which session.</li>
+    </ul>
+
+    <h2>What Claudster stores, and where</h2>
+    <ul>
+      <li><strong>Settings</strong>, including your dashboard's access key, in <code>~/Library/Application Support/Claudster/</code>.</li>
+      <li><strong>Per-project status</strong>, in each project's <code>.claude/</code> folder:
+        <ul>
+          <li><code>status.json</code>: the session's state, a short headline and summary, the beginning of your latest prompt (up to 200 characters), Claude's latest reply (up to 600 characters), the command or file awaiting your approval, the branch, and terminal details (terminal app, window identifiers, process ID and your Mac's network name).</li>
+          <li><code>events.jsonl</code>: a short history, at most 200 entries.</li>
+          <li><code>queue.json</code>: tasks you queue from the dashboard.</li>
+          <li><code>screenshots/</code>: screenshots attached to the card, at most 40 per project.</li>
+        </ul>
+        Claudster asks Git to ignore these files through your global Git ignore file, so they are not committed unless you add them yourself.</li>
+      <li><strong>Session images</strong> copied out of transcripts, at most 8 per session, in <code>~/Library/Caches/Claudster/</code>.</li>
+      <li><strong>Claude Code settings.</strong> Installing adds Claudster's hooks to <code>~/.claude/settings.json</code> (backing it up first) and a skill to <code>~/.claude/skills/project-status/</code>. Your other settings are left as they are.</li>
+      <li><strong>Optional extras</strong>, only if you turn them on: a custom icon file inside each project folder, and titles and colors on Terminal tabs.</li>
+    </ul>
+
+    <h2>The dashboard and your network</h2>
+    <p>Claudster serves its dashboard from your Mac over your local network, so you can open it on your phone. It is plain HTTP on your network, not the internet, and it is protected by a private access key:</p>
+    <ul>
+      <li>Another device can only read or change anything with the link that carries your key (the phone link or QR code in the menu). Treat that link like a password.</li>
+      <li>The dashboard only answers requests addressed to your Mac, which protects it against web pages that try to reach it through your browser.</li>
+      <li>On a network you don't trust, such as public Wi-Fi, turn off <strong>Allow access from other devices on this network</strong> in Settings › General. The dashboard then answers only this Mac.</li>
+    </ul>
+
+    <h2>Permissions it asks for</h2>
+    <ul>
+      <li><strong>Automation</strong> (Terminal, iTerm or System Events), to bring a session's terminal tab forward, to type the fixed line <em>"Process the queued Claudster items for this project."</em> when you choose Send now, and to label Terminal tabs if you turn that on. It never types anything else.</li>
+      <li><strong>Notifications</strong>, to tell you when a session starts waiting on you or hits an error. The notification shows the project name and its question.</li>
+      <li><strong>Local Network</strong>, to serve the dashboard to your phone.</li>
+      <li><strong>Screen Recording</strong> is asked of your terminal app, not of Claudster, and only when a Claude Code session uses Claudster's helper to screenshot an app window for its card.</li>
+    </ul>
+
+    <h2>What we do not collect</h2>
+    <ul>
+      <li>No analytics, advertising or tracking identifiers.</li>
+      <li>No crash reports or diagnostics sent anywhere.</li>
+      <li>No accounts, names, email addresses or payment details.</li>
+      <li>No copy of your prompts, code, transcripts or screenshots leaves your devices because of Claudster.</li>
+    </ul>
+
+    <h2>Other services</h2>
+    <ul>
+      <li><strong>Claude Code</strong> is made by Anthropic and has its own terms and privacy policy. Claudster only reads the files Claude Code keeps on your Mac and does not change what Claude Code sends to Anthropic.</li>
+      <li><strong>GitHub</strong> hosts this website and the downloads. GitHub's privacy statement applies to visiting it.</li>
+      <li>When a Claude Code session asks Claudster's helper to screenshot a web page, the helper opens it in a temporary, private copy of Chrome on your Mac, which is deleted afterwards.</li>
+    </ul>
+
+    <h2>Removing your data</h2>
+    <p>See <a href="support.html#uninstall">how to uninstall Claudster completely</a>. Removing the hooks in Settings › Claude Code stops all new status files, and deleting the folders listed above removes everything Claudster stored.</p>
+
+    <h2>Children's privacy</h2>
+    <p>Claudster is a tool for software developers and is not directed at children. It collects no personal information from anyone.</p>
+
+    <h2>Changes to this policy</h2>
+    <p>If what Claudster stores or where it sends anything changes, this page will change first, with a new date at the top.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about privacy: <a href="mailto:fbmore+claudster@gmail.com">fbmore+claudster@gmail.com</a>.</p>
+
+  </div>
+</main>
+<footer>
+  <div class="wrap">
+    <p>© 2026 FRANCESCO BERTOCCI, LLC · <a href="support.html">Support</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="mailto:fbmore+claudster@gmail.com">fbmore+claudster@gmail.com</a></p>
+    <p>Claudster is an independent project and is not affiliated with, endorsed by, or sponsored by Anthropic. Claude and Claude Code are trademarks of Anthropic, PBC.</p>
+  </div>
+</footer>
+</body>
+</html>

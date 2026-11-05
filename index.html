@@ -74,6 +74,7 @@
     transition-property: color; transition-duration: 150ms;
   }
   .nav-link:hover { color: var(--ink); }
+  .nav { display: flex; gap: 0 18px; flex-wrap: wrap; }
 
   /* Hero */
   .hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 420px); gap: 56px; align-items: center; padding: 40px 0 72px; }
@@ -123,6 +124,15 @@
   .steps strong { display: block; font-size: 17px; }
   .steps span { color: var(--ink-soft); font-size: 16px; }
 
+
+  .films { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin-top: 32px; }
+  .film { margin: 0; }
+  .film video {
+    display: block; width: 100%; aspect-ratio: 16 / 9; border-radius: 18px; background: #1d1714;
+    box-shadow: var(--shadow); outline: 1px solid var(--outline); outline-offset: -1px;
+  }
+  .film figcaption { margin-top: 10px; color: var(--ink-soft); font-size: 15px; }
+  @media (max-width: 860px) { .films { grid-template-columns: 1fr; } }
   .band { padding: 72px 0; border-top: 1px solid var(--hairline); }
 
   .cta { text-align: center; }
@@ -153,7 +163,11 @@
 <header>
   <div class="wrap">
     <a class="brand" href="./"><img src="assets/icon-256.png" alt="" width="32" height="32">Claudster</a>
-    <a class="nav-link" href="https://github.com/fbmore/claudster-app/releases">Releases</a>
+    <nav class="nav" aria-label="Site">
+      <a class="nav-link" href="support.html">Support</a>
+      <a class="nav-link" href="privacy.html">Privacy</a>
+      <a class="nav-link" href="https://github.com/fbmore/claudster-app/releases">Releases</a>
+    </nav>
   </div>
 </header>
 
@@ -179,6 +193,23 @@
     </section>
   </div>
 
+  <section class="band" id="films">
+    <div class="wrap">
+      <h2>See it in action</h2>
+      <p class="section-lede">Two short films, 35 seconds each. The projects shown are demo data.</p>
+      <div class="films">
+        <figure class="film">
+          <video src="media/pitch-a-dark.mp4" poster="media/pitch-a-dark.jpg" muted playsinline controls preload="none" data-autoplay></video>
+          <figcaption>One of your sessions needs you</figcaption>
+        </figure>
+        <figure class="film">
+          <video src="media/pitch-b.mp4" poster="media/pitch-b.jpg" muted playsinline controls preload="none" data-autoplay></video>
+          <figcaption>A tour of what's on the page</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
   <section class="band">
     <div class="wrap">
       <h2>Know which one needs you</h2>
@@ -190,7 +221,7 @@
         </div>
         <div class="feature">
           <h3><span class="dot" style="background: var(--dot-working)"></span>On your phone</h3>
-          <p>Scan a QR code and the same live page opens on your phone over your Wi‑Fi. Nothing leaves your network.</p>
+          <p>Scan a QR code and the same live page opens on your phone, over your own Wi‑Fi.</p>
         </div>
         <div class="feature">
           <h3><span class="dot" style="background: var(--dot-done)"></span>Back to the terminal</h3>
@@ -205,8 +236,8 @@
           <p>A dot shows the most serious state at a glance. The menu lists every project; click one to jump to its terminal.</p>
         </div>
         <div class="feature">
-          <h3><span class="dot" style="background: var(--dot-working)"></span>Labelled Terminal tabs</h3>
-          <p>Optionally titles each Terminal tab with its state and project, and puts the app icon on the project folder.</p>
+          <h3><span class="dot" style="background: var(--dot-done)"></span>Private by design</h3>
+          <p>No account, no analytics, no servers of ours. Everything stays on your Mac, and your phone reaches it only with your private link.</p>
         </div>
       </div>
     </div>
@@ -239,7 +270,7 @@
 
 <footer>
   <div class="wrap">
-    <p>Made by Francesco Bertocci · © <span id="year">2026</span> FRANCESCO BERTOCCI, LLC</p>
+    <p>Made by Francesco Bertocci · © <span id="year">2026</span> FRANCESCO BERTOCCI, LLC · <a class="text-link" href="support.html">Support</a> · <a class="text-link" href="privacy.html">Privacy</a> · <a class="text-link" href="terms.html">Terms</a> · <a class="text-link" href="mailto:fbmore+claudster@gmail.com">fbmore+claudster@gmail.com</a></p>
     <p>Claudster is an independent project and is not affiliated with, endorsed by, or sponsored by Anthropic. Claude and Claude Code are trademarks of Anthropic, PBC.</p>
   </div>
 </footer>
@@ -270,6 +301,17 @@
     play();
   }
   button.addEventListener("click", play);
+
+  // The films play (muted) while on screen, and pause when scrolled away.
+  if (!still.matches && "IntersectionObserver" in window) {
+    const films = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) e.target.play().catch(() => {});
+        else e.target.pause();
+      }
+    }, { threshold: 0.6 });
+    document.querySelectorAll("video[data-autoplay]").forEach((v) => films.observe(v));
+  }
 </script>
 </body>
 </html>
