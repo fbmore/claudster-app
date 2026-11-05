@@ -8,8 +8,19 @@
   --clay: #c9622f;
   --hairline: oklch(0 0 0 / 0.1);
 }
+:root { color-scheme: light; }
+:root[data-theme="dark"] { color-scheme: dark;
+    --paper: #1d1714;
+    --paper-raised: #28201b;
+    --ink: #f3e9df;
+    --ink-soft: #c7b6a8;
+    --ink-faint: #9b8a7d;
+    --clay: #e07a45;
+    --hairline: oklch(1 0 0 / 0.1);
+  }
+/* No JavaScript: follow the system setting. */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme]) { color-scheme: dark;
     --paper: #1d1714;
     --paper-raised: #28201b;
     --ink: #f3e9df;
@@ -36,7 +47,7 @@ header { padding: 20px 0; }
 header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; max-width: 1040px; }
 .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; font-size: 19px; color: var(--ink); text-decoration: none; min-height: 44px; }
 .brand img { width: 32px; height: 32px; border-radius: 8px; }
-nav { display: flex; gap: 4px 18px; flex-wrap: wrap; }
+nav { display: flex; align-items: center; gap: 4px 18px; flex-wrap: wrap; }
 nav a { display: inline-flex; align-items: center; min-height: 44px; color: var(--ink-soft); text-decoration: none; font-weight: 500; transition-property: color; transition-duration: 150ms; }
 nav a:hover, nav a[aria-current="page"] { color: var(--ink); }
 
@@ -75,3 +86,24 @@ footer p + p { margin-top: 8px; }
 footer a { color: var(--ink-soft); }
 
 @media (max-width: 480px) { .wrap { padding: 0 16px; } .lead { font-size: 18px; } }
+
+/* Theme switch: Auto (by the clock), Light, Dark. One icon shows at a time;
+   they cross-fade with scale and blur. Hidden without JavaScript. */
+.theme-toggle {
+  position: relative; display: inline-grid; place-items: center; flex: none;
+  width: 40px; height: 40px; padding: 0; border: 0; border-radius: 12px;
+  background: transparent; color: var(--ink-soft); cursor: pointer;
+  transition-property: color, background-color, scale; transition-duration: 150ms; transition-timing-function: ease-out;
+}
+.theme-toggle:hover { color: var(--ink); background: var(--hairline); }
+.theme-toggle:active { scale: 0.96; }
+.theme-toggle:focus-visible { outline: 2px solid var(--clay); outline-offset: 2px; }
+.theme-toggle .ti {
+  position: absolute; width: 20px; height: 20px; opacity: 0; scale: 0.25; filter: blur(4px);
+  transition-property: opacity, scale, filter; transition-duration: 250ms; transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+}
+:root[data-theme-choice="auto"] .ti-auto,
+:root[data-theme-choice="light"] .ti-light,
+:root[data-theme-choice="dark"] .ti-dark { opacity: 1; scale: 1; filter: blur(0); }
+:root:not([data-theme-choice]) .theme-toggle { display: none; }
+@media (prefers-reduced-motion: reduce) { .theme-toggle .ti { transition-duration: 0ms; } }

@@ -8,8 +8,8 @@
 <meta property="og:title" content="Claudster">
 <meta property="og:description" content="Every Claude Code session, on one page.">
 <meta property="og:image" content="assets/mascot-awake.jpg">
-<meta name="theme-color" content="#efe4d8" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#1d1714" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#efe4d8">
+<script src="theme.js"></script>
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <style>
@@ -30,8 +30,23 @@
     --dot-working: #2f7ae0;
     --dot-done: #a59a90;
   }
+  :root { color-scheme: light; }
+  :root[data-theme="dark"] { color-scheme: dark;
+      --paper: #1d1714;
+      --paper-raised: #28201b;
+      --ink: #f3e9df;
+      --ink-soft: #c7b6a8;
+      --ink-faint: #9b8a7d;
+      --clay: #e07a45;
+      --clay-strong: #ec8a55;
+      --on-clay: #1d1714;
+      --hairline: oklch(1 0 0 / 0.1);
+      --outline: oklch(1 0 0 / 0.1);
+      --shadow: 0 1px 2px oklch(0 0 0 / 0.3), 0 8px 24px oklch(0 0 0 / 0.35);
+    }
+  /* No JavaScript: follow the system setting. */
   @media (prefers-color-scheme: dark) {
-    :root {
+    :root:not([data-theme]) { color-scheme: dark;
       --paper: #1d1714;
       --paper-raised: #28201b;
       --ink: #f3e9df;
@@ -74,7 +89,28 @@
     transition-property: color; transition-duration: 150ms;
   }
   .nav-link:hover { color: var(--ink); }
-  .nav { display: flex; gap: 0 18px; flex-wrap: wrap; }
+  .nav { display: flex; align-items: center; gap: 0 18px; flex-wrap: wrap; }
+  /* Theme switch: Auto (by the clock), Light, Dark. One icon shows at a time;
+     they cross-fade with scale and blur. Hidden without JavaScript. */
+  .theme-toggle {
+    position: relative; display: inline-grid; place-items: center; flex: none;
+    width: 40px; height: 40px; padding: 0; border: 0; border-radius: 12px;
+    background: transparent; color: var(--ink-soft); cursor: pointer;
+    transition-property: color, background-color, scale; transition-duration: 150ms; transition-timing-function: ease-out;
+  }
+  .theme-toggle:hover { color: var(--ink); background: var(--hairline); }
+  .theme-toggle:active { scale: 0.96; }
+  .theme-toggle:focus-visible { outline: 2px solid var(--clay); outline-offset: 2px; }
+  .theme-toggle .ti {
+    position: absolute; width: 20px; height: 20px; opacity: 0; scale: 0.25; filter: blur(4px);
+    transition-property: opacity, scale, filter; transition-duration: 250ms; transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+  }
+  :root[data-theme-choice="auto"] .ti-auto,
+  :root[data-theme-choice="light"] .ti-light,
+  :root[data-theme-choice="dark"] .ti-dark { opacity: 1; scale: 1; filter: blur(0); }
+  :root:not([data-theme-choice]) .theme-toggle { display: none; }
+  @media (prefers-reduced-motion: reduce) { .theme-toggle .ti { transition-duration: 0ms; } }
+  
 
   /* Hero */
   .hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 420px); gap: 56px; align-items: center; padding: 40px 0 72px; }
@@ -177,6 +213,11 @@
       <a class="nav-link" href="support.html">Support</a>
       <a class="nav-link" href="privacy.html">Privacy</a>
       <a class="nav-link" href="https://github.com/fbmore/claudster-app/releases">Releases</a>
+      <button class="theme-toggle" type="button" aria-label="Theme">
+        <svg class="ti ti-auto" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="10" cy="10" r="6.5"/><path d="M10 3.5a6.5 6.5 0 0 1 0 13Z" fill="currentColor" stroke="none"/></svg>
+        <svg class="ti ti-light" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="3.5"/><path d="M10 2v1.75M10 16.25V18M2 10h1.75M16.25 10H18M4.34 4.34l1.24 1.24M14.42 14.42l1.24 1.24M4.34 15.66l1.24-1.24M14.42 5.58l1.24-1.24"/></svg>
+        <svg class="ti ti-dark" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M16.5 12.2A6.75 6.75 0 0 1 7.8 3.5a6.75 6.75 0 1 0 8.7 8.7Z"/></svg>
+      </button>
     </nav>
   </div>
 </header>
