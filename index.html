@@ -125,14 +125,24 @@
   .steps span { color: var(--ink-soft); font-size: 16px; }
 
 
-  .films { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin-top: 32px; }
+  .films { display: grid; grid-template-columns: 1fr; gap: 40px; margin-top: 32px; max-width: 960px; }
   .film { margin: 0; }
   .film video {
     display: block; width: 100%; aspect-ratio: 16 / 9; border-radius: 18px; background: #1d1714;
     box-shadow: var(--shadow); outline: 1px solid var(--outline); outline-offset: -1px;
   }
   .film figcaption { margin-top: 10px; color: var(--ink-soft); font-size: 15px; }
-  @media (max-width: 860px) { .films { grid-template-columns: 1fr; } }
+
+  /* Mac app screens. The captures carry their own window shadow, so no extra
+     shadow or outline here. */
+  .screens { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 32px 40px; align-items: start; margin-top: 32px; }
+  .screen-stack { display: grid; gap: 32px; }
+  .screen { margin: 0; }
+  .screen img { display: block; width: 100%; height: auto; }
+  .screen-tall img { max-width: 420px; margin: 0 auto; }
+  .screen figcaption { margin-top: 8px; color: var(--ink-soft); font-size: 16px; text-wrap: pretty; }
+  .screen figcaption strong { color: var(--ink); font-weight: 600; }
+  @media (max-width: 860px) { .screens { grid-template-columns: 1fr; } }
   .band { padding: 72px 0; border-top: 1px solid var(--hairline); }
 
   .cta { text-align: center; }
@@ -214,6 +224,22 @@
     <div class="wrap">
       <h2>Know which one needs you</h2>
       <p class="section-lede">Start work in three projects, step away, and find out in five seconds which one is blocked and what it wants.</p>
+      <div class="screens">
+        <figure class="screen screen-tall">
+          <img src="media/mac-expanded.webp" width="1012" height="2144" loading="lazy" alt="The Claudster dashboard window, expanded: a SugarSnapp card waiting on a question about Tap to Pay, a Handleshare card with an error, then the projects still working.">
+          <figcaption><strong>The dashboard window.</strong> Every card shows what the session is on, the question it's waiting on, and buttons to queue a task or jump to its terminal.</figcaption>
+        </figure>
+        <div class="screen-stack">
+          <figure class="screen">
+            <img src="media/mac-menu.webp" width="1058" height="872" loading="lazy" alt="The Claudster menu bar menu, listing six projects, each with a state dot and its app icon.">
+            <figcaption><strong>In the menu bar.</strong> Every project with its state and icon. Click one to bring its terminal forward.</figcaption>
+          </figure>
+          <figure class="screen">
+            <img src="media/mac-compact.webp" width="1012" height="592" loading="lazy" alt="The dashboard window in its compact size: the header, search, project icons and state filters.">
+            <figcaption><strong>Compact.</strong> The window folds down to the header and filters, and unfolds when you point at it.</figcaption>
+          </figure>
+        </div>
+      </div>
       <div class="features">
         <div class="feature">
           <h3><span class="dot" style="background: var(--dot-waiting)"></span>Waiting on you, first</h3>
