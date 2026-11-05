@@ -4,7 +4,7 @@
 Claude Code sessions are working, which are done, and which are waiting on you, on your Mac and
 on your phone.
 
-- Website: https://fbmore.github.io/claudster-app/
+- Website: https://claudster.dev/
 - Download: [Releases](https://github.com/fbmore/claudster-app/releases)
 
 This repository hosts the website and the release downloads. The app's source code is not
