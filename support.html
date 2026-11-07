@@ -67,6 +67,20 @@
     <h2>Queue and Send now</h2>
     <p>Type a task on a card and choose <strong>Queue</strong>: the session receives it at its next turn. <strong>Send now</strong> wakes an idle session by typing one fixed line into its terminal. It never types into a session that is waiting on a question, so it can't answer a prompt for you.</p>
 
+    <h2>Dictate a task</h2>
+    <ul>
+      <li>On macOS 26 or later, click the microphone in a card's task field, or press <strong>⌃⌥M</strong> from any app. If a Terminal or iTerm tab running a session is in front, Claudster listens for that session.</li>
+      <li>Speak, then choose <strong>Send</strong> (or press Return, or say "send"): the text is queued and the session is woken to pick it up. <strong>Edit</strong> puts the text in the field instead; <strong>Cancel</strong> (Esc, or say "cancel") drops it.</li>
+      <li>If nothing happens, allow Claudster in <strong>System Settings › Privacy &amp; Security › Microphone</strong>. Change or clear the shortcut in Settings › General.</li>
+    </ul>
+
+    <h2>Tile terminals side by side</h2>
+    <ul>
+      <li>Pick one or more project tabs on the dashboard (⌘-click picks several), then choose <strong>Tile</strong>. Their Terminal windows fill one screen: halves for 2, columns for 3, quarters for 4. With more than one display, Tile asks which.</li>
+      <li>While tiled, focusing any one of them brings the whole group forward. <strong>Untile</strong> puts every window back where it was and returns tabs to the windows they came from.</li>
+      <li>Tabs that share a window need Accessibility to come apart and go back: allow Claudster in <strong>System Settings › Privacy &amp; Security › Accessibility</strong>. Tile works with Terminal.</li>
+    </ul>
+
     <h2>Icons, colors and screenshots</h2>
     <ul>
       <li>Claudster finds each project's icon (an Xcode app icon, a favicon, or <code>.claude/icon.png</code> if you add one) and its brand color. Open a card's details on the dashboard to pick a different one.</li>
