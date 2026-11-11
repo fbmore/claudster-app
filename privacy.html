@@ -29,14 +29,14 @@
   <div class="wrap">
 
     <h1>Privacy Policy</h1>
-    <p class="updated">Last updated November 10, 2026</p>
-    <p class="lead">Claudster runs entirely on your Mac. It has no account, no servers of ours, and no analytics. Nothing it handles is sent to us, ever.</p>
+    <p class="updated">Last updated November 11, 2026</p>
+    <p class="lead">Claudster runs on your Mac and, if you use it, on your iPhone, which talks only to your own Mac. It has no account, no servers of ours, and no analytics. Nothing it handles is sent to us, ever.</p>
 
     <div class="summary">
       <strong>In short</strong>
       <ul>
         <li>We (FRANCESCO BERTOCCI, LLC) collect no data at all: no telemetry, crash reports, usage statistics or update checks.</li>
-        <li>Everything Claudster reads and writes stays on your Mac and in your own project folders.</li>
+        <li>Everything Claudster reads and writes stays on your Mac, in your own project folders, and on your iPhone if you use the app.</li>
         <li>The dashboard is served by your Mac to your own devices. Other devices need your private link to read it.</li>
       </ul>
     </div>
@@ -75,13 +75,26 @@
       <li>On a network you don't trust, such as public Wi-Fi, turn off <strong>Allow access from other devices on this network</strong> in Settings › General. The dashboard then answers only this Mac.</li>
     </ul>
 
+    <h2>The iPhone app</h2>
+    <p>The Claudster iPhone app shows the same board as the dashboard and lets you send tasks. It connects only to your own Mac on the same network, using the same private access key, over plain HTTP on your network (not the internet).</p>
+    <ul>
+      <li><strong>What it keeps on the phone:</strong> the access key, in the iPhone's Keychain on this device only (not synced to iCloud); your Mac's network address; and your settings, such as alerts, haptics, text size and which sessions you follow. Session details (projects, questions, recaps, screenshots) are shown while the app is open and are not saved.</li>
+      <li><strong>What it sends, and only to your Mac:</strong> the tasks you type or dictate, photos you attach or paste, and changes you make to the board, such as tile order and project looks.</li>
+      <li><strong>Camera</strong>, only to scan the QR code that pairs the app with your Mac. No photo is taken or kept.</li>
+      <li><strong>Microphone and Speech Recognition</strong>, only while you dictate a task. Apple's speech recognition turns your speech into text, on the iPhone where it can and otherwise on Apple's servers, under Apple's privacy policy. Claudster keeps no audio; the text goes to your Mac like a typed task.</li>
+      <li><strong>Photos</strong>: you pick photos with the system picker, so the app sees only the ones you choose.</li>
+      <li><strong>Local Network</strong>, to find and reach your Mac.</li>
+      <li><strong>Notifications</strong>, if you turn alerts on: the iPhone shows a local alert when a session needs you, with the project name and its question. Nothing goes through a server; the app checks your Mac in the background from time to time.</li>
+    </ul>
+    <p>Deleting the iPhone app removes everything it kept on the phone.</p>
+
     <h2>Permissions it asks for</h2>
     <ul>
       <li><strong>Automation</strong> (Terminal, iTerm or System Events), to bring a session's terminal tab forward, to type the fixed line <em>"Process the queued Claudster items for this project."</em> when you choose Send now, and to label Terminal tabs if you turn that on. It never types anything else.</li>
       <li><strong>Notifications</strong>, to tell you when a session starts waiting on you or hits an error. The notification shows the project name and its question.</li>
       <li><strong>Local Network</strong>, to serve the dashboard to your phone.</li>
       <li><strong>Microphone</strong>, only when you dictate a task from the dashboard on your Mac (macOS 26 or later). The microphone is on only while the listening panel is open. Speech is turned into text on your Mac by macOS's own speech recognition; the audio is not saved and not sent anywhere. The text goes to the session the same way a typed task does. The first time, macOS may download its speech model for your language from Apple.</li>
-      <li><strong>Microphone in a web browser</strong>, only if you open the dashboard in a browser on your Mac and dictate there. The browser asks for the microphone and turns speech into text with its own speech recognition, under the browser maker's privacy policy: Safari uses Apple's, and Chrome sends the audio to Google. Claudster receives only the text. On a phone, use your keyboard's dictation; Claudster's page does not use the phone's microphone.</li>
+      <li><strong>Microphone in a web browser</strong>, only if you open the dashboard in a browser on your Mac and dictate there. The browser asks for the microphone and turns speech into text with its own speech recognition, under the browser maker's privacy policy: Safari uses Apple's, and Chrome sends the audio to Google. Claudster receives only the text. In the dashboard page on a phone, use your keyboard's dictation; the page itself does not use the phone's microphone. The iPhone app has its own dictation, described below.</li>
       <li><strong>Accessibility</strong>, only if you use Tile on sessions that share a Terminal window. Terminal has no other way to move a tab into its own window or merge it back, so Claudster presses <em>Move Tab to New Window</em> and <em>Merge All Windows</em> in Terminal's Window menu. It does not read or press anything else.</li>
       <li><strong>Screen Recording</strong> is asked of your terminal app, not of Claudster, and only when a Claude Code session uses Claudster's helper to screenshot an app window for its card.</li>
     </ul>
