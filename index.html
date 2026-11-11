@@ -174,16 +174,65 @@
   }
   .film figcaption { margin-top: 10px; color: var(--ink-soft); font-size: 15px; }
 
-  /* Mac app screens. The captures carry their own window shadow, so no extra
-     shadow or outline here. */
-  .screens { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 32px 40px; align-items: start; margin-top: 32px; }
-  .screen-stack { display: grid; gap: 32px; }
-  .screen { margin: 0; }
-  .screen img { display: block; width: 100%; height: auto; }
-  .screen-tall img { max-width: 420px; margin: 0 auto; }
-  .screen figcaption { margin-top: 8px; color: var(--ink-soft); font-size: 16px; text-wrap: pretty; }
-  .screen figcaption strong { color: var(--ink); font-weight: 600; }
-  @media (max-width: 860px) { .screens { grid-template-columns: 1fr; } }
+  /* Mac app views, shown where they live: on a desktop, under the menu bar.
+     The captures carry their own window shadow, so none is added to them. */
+  .tour { margin-top: 32px; }
+  .desk {
+    position: relative; aspect-ratio: 4 / 3; overflow: hidden; border-radius: 18px;
+    background: #0b0a10; box-shadow: var(--shadow); outline: 1px solid var(--outline); outline-offset: -1px;
+  }
+  .desk .wall { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 72% 50%; display: block; }
+  .menubar {
+    position: absolute; inset: 0 0 auto; height: 3.2cqw; display: flex; align-items: center; justify-content: flex-end;
+    gap: 1.6%; padding: 0 1.8%; background: oklch(0.12 0.01 280 / 0.55); color: oklch(1 0 0 / 0.85);
+    font: 500 clamp(8px, 1.25cqw, 13px)/1 system-ui; font-variant-numeric: tabular-nums;
+  }
+  .desk { container-type: inline-size; }
+  .mb-face { display: grid; place-items: center; height: 2.4cqw; width: 3.4cqw; border-radius: 0.5cqw; transition: background-color 200ms ease-out; }
+  .mb-face img { height: 1.8cqw; width: 1.8cqw; border-radius: 0.4cqw; }
+  .tour[data-at="1"] .mb-face { background: oklch(1 0 0 / 0.22); }
+  .view {
+    position: absolute; display: block; height: auto; opacity: 0; translate: 0 1.2%; filter: blur(4px);
+    transition-property: opacity, translate, filter; transition-duration: 450ms; transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+    pointer-events: none;
+  }
+  .view-window { width: 41%; right: 3%; top: 3.4cqw; }
+  .view-menu { width: 56%; right: 4cqw; top: 2.6cqw; }
+  .view-compact { width: 66%; right: 3%; top: 3.6cqw; }
+  .tour[data-at="0"] .view-window, .tour[data-at="1"] .view-menu, .tour[data-at="2"] .view-compact { opacity: 1; translate: 0 0; filter: blur(0); }
+  .callouts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 16px; }
+  .callout {
+    position: relative; appearance: none; text-align: left; padding: 14px 16px 16px; border: 0; border-radius: 14px;
+    background: transparent; color: var(--ink-soft); font: inherit; font-size: 16px; line-height: 1.45; text-wrap: pretty; cursor: pointer;
+    transition-property: background-color, color, scale; transition-duration: 150ms; transition-timing-function: ease-out;
+  }
+  .callout strong { display: block; color: var(--ink); font-weight: 600; margin-bottom: 2px; }
+  .callout:hover { background: var(--hairline); }
+  .callout:active { scale: 0.96; }
+  .callout:focus-visible { outline: 2px solid var(--clay); outline-offset: 2px; }
+  .callout[aria-selected="true"] { color: var(--ink); background: var(--hairline); }
+  .callout .bar { position: absolute; left: 16px; right: 16px; top: 0; height: 2px; border-radius: 1px; background: var(--hairline); overflow: hidden; }
+  .callout .bar::after { content: ""; position: absolute; inset: 0; background: var(--clay); scale: 0 1; transform-origin: left; }
+  .callout[aria-selected="true"] .bar::after { scale: var(--progress, 1) 1; }
+  /* Wide screens: the desktop gets more room than the text column, the
+     callouts sit beside it, and both stay in view together. */
+  @media (min-width: 1140px) {
+    .tour { display: grid; grid-template-columns: minmax(0, 1fr) 272px; gap: 24px; align-items: center; margin-inline: -60px; }
+    .callouts { grid-template-columns: 1fr; gap: 8px; margin-top: 0; }
+    .callout { padding: 14px 16px 14px 22px; }
+    .callout .bar { left: 0; right: auto; top: 14px; bottom: 14px; width: 2px; height: auto; }
+    .callout .bar::after { scale: 1 0; transform-origin: top; }
+    .callout[aria-selected="true"] .bar::after { scale: 1 var(--progress, 1); }
+  }
+  @media (max-width: 860px) {
+    .callouts { grid-template-columns: 1fr; gap: 4px; }
+    .desk { aspect-ratio: 3 / 4; }
+    .view-window { width: 62%; right: 50%; translate: 50% 1.2%; }
+    .tour[data-at="0"] .view-window { translate: 50% 0; }
+    .view-menu { width: 92%; right: 4%; }
+    .view-compact { width: 94%; right: 3%; }
+  }
+  @media (prefers-reduced-motion: reduce) { .view { transition-duration: 0ms; translate: 0 0; filter: none; } }
   .band { padding: 72px 0; border-top: 1px solid var(--hairline); }
 
   .cta { text-align: center; }
@@ -268,20 +317,21 @@
     <div class="wrap">
       <h2>Know which one needs you</h2>
       <p class="section-lede">Start work in three projects, step away, and find out in five seconds which one is blocked and what it wants.</p>
-      <div class="screens">
-        <figure class="screen screen-tall">
-          <img src="media/mac-expanded.webp" width="1100" height="1920" loading="lazy" alt="The Claudster dashboard window, expanded: a FreeView card waiting on a question about the iPhone remote, a PhotoSendr card with an error, then Wubee and the other projects still working.">
-          <figcaption><strong>The dashboard window.</strong> Every card shows what the session is on, the question it's waiting on, and buttons to queue a task or jump to its terminal.</figcaption>
-        </figure>
-        <div class="screen-stack">
-          <figure class="screen">
-            <img src="media/mac-menu.webp" width="1108" height="1160" loading="lazy" alt="The Claudster menu bar menu, listing twelve projects, each with a state dot and its app icon.">
-            <figcaption><strong>In the menu bar.</strong> Every project with its state and icon. Click one to bring its terminal forward.</figcaption>
-          </figure>
-          <figure class="screen">
-            <img src="media/mac-compact.webp" width="1100" height="768" loading="lazy" alt="The dashboard window in its compact size: the header, search, project icons and state filters.">
-            <figcaption><strong>Compact.</strong> The window folds down to the header and filters, and unfolds when you point at it.</figcaption>
-          </figure>
+      <div class="tour" data-tour>
+        <div class="desk" aria-live="polite">
+          <img class="wall" src="media/desk-wallpaper.webp" width="1800" height="1012" alt="">
+          <div class="menubar" aria-hidden="true">
+            <span class="mb-face"><img src="assets/favicon.png" width="32" height="32" alt=""></span>
+            <span class="mb-clock">Wed 9:41</span>
+          </div>
+          <img class="view view-window" data-view="0" src="media/mac-expanded.webp" width="1100" height="1920" alt="The Claudster dashboard window, expanded, at the top right of a Mac desktop: a FreeView card waiting on a question about the iPhone remote, a PhotoSendr card with an error, then Wubee and the other projects still working.">
+          <img class="view view-menu" data-view="1" src="media/mac-menu.webp" width="1108" height="1160" loading="lazy" alt="The Claudster menu open from its face in the menu bar, listing twelve projects, each with a state dot and its app icon.">
+          <img class="view view-compact" data-view="2" src="media/mac-compact.webp" width="1100" height="768" loading="lazy" alt="The dashboard window in its compact size at the top right of the desktop: the header, search, project icons and state filters.">
+        </div>
+        <div class="callouts" role="tablist" aria-label="Where Claudster shows up">
+          <button class="callout" type="button" role="tab" data-go="0" aria-selected="true"><span class="bar" aria-hidden="true"></span><strong>The dashboard window.</strong> Every card shows what the session is on, the question it's waiting on, and buttons to queue a task or jump to its terminal.</button>
+          <button class="callout" type="button" role="tab" data-go="1" aria-selected="false"><span class="bar" aria-hidden="true"></span><strong>In the menu bar.</strong> Every project with its state and icon. Click one to bring its terminal forward.</button>
+          <button class="callout" type="button" role="tab" data-go="2" aria-selected="false"><span class="bar" aria-hidden="true"></span><strong>Compact.</strong> The window folds down to the header and filters, and unfolds when you point at it.</button>
         </div>
       </div>
       <div class="features">
@@ -381,6 +431,49 @@
       }
     }, { threshold: 0.6 });
     document.querySelectorAll("video[data-autoplay]").forEach((v) => films.observe(v));
+  }
+  // Know which one needs you: the three views take turns on the desktop, each
+  // for a few seconds, with its callout filling as it plays. Choosing a callout
+  // stops the turns there. With reduced motion, nothing turns by itself.
+  const tour = document.querySelector("[data-tour]");
+  if (tour) {
+    const callouts = [...tour.querySelectorAll(".callout")];
+    const HOLD = 6000;
+    let at = 0, started = 0, timer = 0, auto = !still.matches, visible = false;
+    function show(i) {
+      at = i;
+      tour.dataset.at = String(i);
+      callouts.forEach((c, n) => { c.setAttribute("aria-selected", String(n === i)); c.tabIndex = n === i ? 0 : -1; });
+      started = performance.now();
+    }
+    function tick(now) {
+      timer = 0;
+      if (!auto || !visible) return;
+      const p = Math.min(1, (now - started) / HOLD);
+      callouts[at].style.setProperty("--progress", p.toFixed(3));
+      if (p >= 1) { callouts[at].style.removeProperty("--progress"); show((at + 1) % callouts.length); }
+      timer = requestAnimationFrame(tick);
+    }
+    function stop() {
+      auto = false;
+      if (timer) cancelAnimationFrame(timer);
+      callouts.forEach((c) => c.style.removeProperty("--progress"));
+    }
+    callouts.forEach((c, n) => c.addEventListener("click", () => { stop(); show(n); }));
+    tour.querySelector(".callouts").addEventListener("keydown", (e) => {
+      const d = e.key === "ArrowRight" || e.key === "ArrowDown" ? 1 : e.key === "ArrowLeft" || e.key === "ArrowUp" ? -1 : 0;
+      if (!d) return;
+      e.preventDefault(); stop();
+      show((at + d + callouts.length) % callouts.length);
+      callouts[at].focus();
+    });
+    show(0);
+    if (auto && "IntersectionObserver" in window) {
+      new IntersectionObserver((entries) => {
+        visible = entries.some((e) => e.isIntersecting);
+        if (visible && auto && !timer) { started = performance.now() - (parseFloat(callouts[at].style.getPropertyValue("--progress")) || 0) * HOLD; timer = requestAnimationFrame(tick); }
+      }, { threshold: 0.4 }).observe(tour);
+    }
   }
 </script>
 </body>
