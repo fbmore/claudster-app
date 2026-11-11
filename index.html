@@ -196,10 +196,41 @@
     transition-property: opacity, translate, filter; transition-duration: 450ms; transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
     pointer-events: none;
   }
-  .view-window { width: 41%; right: 3%; top: 3.4cqw; }
   .view-menu { width: 56%; right: 4cqw; top: 2.6cqw; }
-  .view-compact { width: 66%; right: 3%; top: 3.6cqw; }
-  .tour[data-at="0"] .view-window, .tour[data-at="1"] .view-menu, .tour[data-at="2"] .view-compact { opacity: 1; translate: 0 0; filter: blur(0); }
+  .tour[data-at="2"] .view-menu, .tour[data-at="3"] .view-phone { opacity: 1; translate: 0 0; filter: blur(0); }
+  /* The window: one size for both states, between the two captures' old
+     widths. Its height is what unfolds, with the app's own curve. */
+  .win {
+    position: absolute; right: 3%; top: 1cqw; width: 54%; height: calc(54cqw * 768 / 1100); overflow: hidden;
+    transition-property: height, opacity, translate, filter; transition-duration: 700ms, 450ms, 450ms, 450ms;
+    transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+  }
+  .win img { position: absolute; left: 0; top: 0; width: 100%; height: auto; display: block; }
+  .win-compact, .win-full { transition: opacity 180ms ease-out; }
+  /* The compact capture's shadow is see-through: keep the full one out of
+     sight until the window starts to unfold. */
+  .win-full { opacity: 0; }
+  .tour[data-at="1"] .win { height: 76cqw; }
+  .tour[data-at="1"] .win-compact { opacity: 0; }
+  .tour[data-at="1"] .win-full { opacity: 1; }
+  .tour[data-at="2"] .win, .tour[data-at="3"] .win { opacity: 0; translate: 0 1.2%; filter: blur(4px); }
+  /* The phone stands in front of the desktop. */
+  .view-phone {
+    right: 50%; margin-right: -15cqw; top: 4.4cqw; width: 30cqw; padding: 0.9cqw; border-radius: 4.6cqw;
+    background: #0d0d0f; box-shadow: inset 0 0 0 0.25cqw #3a3a40, 0 2cqw 5cqw oklch(0 0 0 / 0.55), 0 0.4cqw 1cqw oklch(0 0 0 / 0.4);
+  }
+  .view-phone img { display: block; width: 100%; height: auto; border-radius: 3.7cqw; }
+  .desk::after {
+    content: ""; position: absolute; inset: 0; background: oklch(0 0 0 / 0.45); opacity: 0; pointer-events: none;
+    transition: opacity 450ms ease-out;
+  }
+  .tour[data-at="3"] .desk::after { opacity: 1; }
+  .view-phone { z-index: 1; }
+  .soon {
+    display: inline-block; margin-top: 8px; padding: 3px 10px; border-radius: 999px;
+    background: var(--hairline); color: var(--ink-soft); font-size: 13px; font-weight: 500; white-space: nowrap;
+  }
+  .iphone-soon { margin: 14px 0 0; }
   .callouts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 16px; }
   .callout {
     position: relative; appearance: none; text-align: left; padding: 14px 16px 16px; border: 0; border-radius: 14px;
@@ -227,10 +258,10 @@
   @media (max-width: 860px) {
     .callouts { grid-template-columns: 1fr; gap: 4px; }
     .desk { aspect-ratio: 3 / 4; }
-    .view-window { width: 62%; right: 50%; translate: 50% 1.2%; }
-    .tour[data-at="0"] .view-window { translate: 50% 0; }
+    .win { width: 92%; right: 4%; top: 4cqw; height: calc(92cqw * 768 / 1100); }
+    .tour[data-at="1"] .win { height: 130cqw; }
     .view-menu { width: 92%; right: 4%; }
-    .view-compact { width: 94%; right: 3%; }
+    .view-phone { width: 52cqw; margin-right: -26cqw; top: 9cqw; }
   }
   @media (prefers-reduced-motion: reduce) { .view { transition-duration: 0ms; translate: 0 0; filter: none; } }
   .band { padding: 72px 0; border-top: 1px solid var(--hairline); }
@@ -287,6 +318,9 @@
           </a>
           <span class="fineprint">macOS 14 or later · Apple silicon and Intel</span>
         </div>
+        <!-- Swap for the public TestFlight link once external testing is open:
+             <a class="soon" href="https://testflight.apple.com/join/…">iPhone app on TestFlight</a> -->
+        <p class="iphone-soon"><span class="soon">iPhone app · TestFlight coming&nbsp;soon</span></p>
       </div>
       <button class="mascot" type="button" id="mascot" aria-label="Play the Claudster mascot waking up">
         <video id="mascot-video" muted playsinline preload="auto" poster="assets/mascot-asleep.jpg" aria-hidden="true">
@@ -296,42 +330,34 @@
     </section>
   </div>
 
-  <section class="band" id="films">
-    <div class="wrap">
-      <h2>See it in action</h2>
-      <p class="section-lede">Two short films, 35 seconds each. The projects shown are demo data.</p>
-      <div class="films">
-        <figure class="film">
-          <video src="media/pitch-a-dark.mp4" poster="media/pitch-a-dark.jpg" muted playsinline controls preload="none" data-autoplay></video>
-          <figcaption>One of your sessions needs you</figcaption>
-        </figure>
-        <figure class="film">
-          <video src="media/pitch-b.mp4" poster="media/pitch-b.jpg" muted playsinline controls preload="none" data-autoplay></video>
-          <figcaption>A tour of what's on the page</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <section class="band">
+  <section class="band" id="tour">
     <div class="wrap">
       <h2>Know which one needs you</h2>
       <p class="section-lede">Start work in three projects, step away, and find out in five seconds which one is blocked and what it wants.</p>
-      <div class="tour" data-tour>
-        <div class="desk" aria-live="polite">
+      <div class="tour" data-tour data-at="0">
+        <div class="desk">
           <img class="wall" src="media/desk-wallpaper.webp" width="1800" height="1012" alt="">
           <div class="menubar" aria-hidden="true">
             <span class="mb-face"><img src="assets/favicon.png" width="32" height="32" alt=""></span>
             <span class="mb-clock">Wed 9:41</span>
           </div>
-          <img class="view view-window" data-view="0" src="media/mac-expanded.webp" width="1100" height="1920" alt="The Claudster dashboard window, expanded, at the top right of a Mac desktop: a FreeView card waiting on a question about the iPhone remote, a PhotoSendr card with an error, then Wubee and the other projects still working.">
-          <img class="view view-menu" data-view="1" src="media/mac-menu.webp" width="1108" height="1160" loading="lazy" alt="The Claudster menu open from its face in the menu bar, listing twelve projects, each with a state dot and its app icon.">
-          <img class="view view-compact" data-view="2" src="media/mac-compact.webp" width="1100" height="768" loading="lazy" alt="The dashboard window in its compact size at the top right of the desktop: the header, search, project icons and state filters.">
+          <!-- One window: compact, then unfolding into the full dashboard. Both
+               captures share the same width and title bar, so the full one is
+               revealed from the top as the window grows. -->
+          <div class="win" role="img" aria-label="The Claudster dashboard window at the top right of a Mac desktop. Compact, it shows the header, search, project icons and state filters; unfolded, a FreeView card waiting on a question about the iPhone remote, a PhotoSendr card with an error, and the other projects.">
+            <img class="win-full" src="media/mac-expanded.webp" width="1100" height="1920" alt="">
+            <img class="win-compact" src="media/mac-compact.webp" width="1100" height="768" alt="">
+          </div>
+          <img class="view view-menu" src="media/mac-menu.webp" width="1108" height="1160" loading="lazy" alt="The Claudster menu open from its face in the menu bar, listing twelve projects, each with a state dot and its app icon.">
+          <div class="view view-phone">
+            <img src="media/iphone-board.webp" width="886" height="1920" loading="lazy" alt="Claudster for iPhone: the board with a FreeView card waiting on a question, its Focus, Terminal Here and New Session buttons, and a reply field.">
+          </div>
         </div>
         <div class="callouts" role="tablist" aria-label="Where Claudster shows up">
-          <button class="callout" type="button" role="tab" data-go="0" aria-selected="true"><span class="bar" aria-hidden="true"></span><strong>The dashboard window.</strong> Every card shows what the session is on, the question it's waiting on, and buttons to queue a task or jump to its terminal.</button>
-          <button class="callout" type="button" role="tab" data-go="1" aria-selected="false"><span class="bar" aria-hidden="true"></span><strong>In the menu bar.</strong> Every project with its state and icon. Click one to bring its terminal forward.</button>
-          <button class="callout" type="button" role="tab" data-go="2" aria-selected="false"><span class="bar" aria-hidden="true"></span><strong>Compact.</strong> The window folds down to the header and filters, and unfolds when you point at it.</button>
+          <button class="callout" type="button" role="tab" data-go="0" aria-selected="true"><span class="bar" aria-hidden="true"></span><strong>Compact.</strong> The window folds down to the header and filters, and unfolds when you point at it.</button>
+          <button class="callout" type="button" role="tab" data-go="1" aria-selected="false"><span class="bar" aria-hidden="true"></span><strong>The dashboard window.</strong> Every card shows what the session is on, the question it's waiting on, and buttons to queue a task or jump to its terminal.</button>
+          <button class="callout" type="button" role="tab" data-go="2" aria-selected="false"><span class="bar" aria-hidden="true"></span><strong>In the menu bar.</strong> Every project with its state and icon. Click one to bring its terminal forward.</button>
+          <button class="callout" type="button" role="tab" data-go="3" aria-selected="false"><span class="bar" aria-hidden="true"></span><strong>On your iPhone.</strong> The same board in an app: answer, queue a task or start a session from the couch. <span class="soon">TestFlight · coming&nbsp;soon</span></button>
         </div>
       </div>
       <div class="features">
@@ -362,6 +388,24 @@
       </div>
     </div>
   </section>
+
+  <section class="band" id="films">
+    <div class="wrap">
+      <h2>See it in action</h2>
+      <p class="section-lede">Two short films, 35 seconds each. The projects shown are demo data.</p>
+      <div class="films">
+        <figure class="film">
+          <video src="media/pitch-a-dark.mp4" poster="media/pitch-a-dark.jpg" muted playsinline controls preload="none" data-autoplay></video>
+          <figcaption>One of your sessions needs you</figcaption>
+        </figure>
+        <figure class="film">
+          <video src="media/pitch-b.mp4" poster="media/pitch-b.jpg" muted playsinline controls preload="none" data-autoplay></video>
+          <figcaption>A tour of what's on the page</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
 
   <section class="band">
     <div class="wrap">
@@ -432,13 +476,14 @@
     }, { threshold: 0.6 });
     document.querySelectorAll("video[data-autoplay]").forEach((v) => films.observe(v));
   }
-  // Know which one needs you: the three views take turns on the desktop, each
-  // for a few seconds, with its callout filling as it plays. Choosing a callout
+  // Know which one needs you: the views take turns on the desktop (compact,
+  // unfolding to the full window, the menu, the phone), each for a few
+  // seconds, with its callout filling as it plays. Choosing a callout
   // stops the turns there. With reduced motion, nothing turns by itself.
   const tour = document.querySelector("[data-tour]");
   if (tour) {
     const callouts = [...tour.querySelectorAll(".callout")];
-    const HOLD = 6000;
+    const HOLD = [3500, 6500, 5500, 6000];
     let at = 0, started = 0, timer = 0, auto = !still.matches, visible = false;
     function show(i) {
       at = i;
@@ -449,7 +494,7 @@
     function tick(now) {
       timer = 0;
       if (!auto || !visible) return;
-      const p = Math.min(1, (now - started) / HOLD);
+      const p = Math.min(1, (now - started) / HOLD[at]);
       callouts[at].style.setProperty("--progress", p.toFixed(3));
       if (p >= 1) { callouts[at].style.removeProperty("--progress"); show((at + 1) % callouts.length); }
       timer = requestAnimationFrame(tick);
@@ -471,7 +516,7 @@
     if (auto && "IntersectionObserver" in window) {
       new IntersectionObserver((entries) => {
         visible = entries.some((e) => e.isIntersecting);
-        if (visible && auto && !timer) { started = performance.now() - (parseFloat(callouts[at].style.getPropertyValue("--progress")) || 0) * HOLD; timer = requestAnimationFrame(tick); }
+        if (visible && auto && !timer) { started = performance.now() - (parseFloat(callouts[at].style.getPropertyValue("--progress")) || 0) * HOLD[at]; timer = requestAnimationFrame(tick); }
       }, { threshold: 0.4 }).observe(tour);
     }
   }
