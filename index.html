@@ -231,6 +231,11 @@
     background: var(--hairline); color: var(--ink-soft); font-size: 13px; font-weight: 500; white-space: nowrap;
   }
   .iphone-soon { margin: 14px 0 0; }
+  .hero-links { margin: 14px 0 0; color: var(--ink-faint); font-size: 15px; }
+  .hero-links a { display: inline-block; padding: 10px 0; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  #tour, #films { scroll-margin-top: 16px; }
   .callouts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 16px; }
   .callout {
     position: relative; appearance: none; text-align: left; padding: 14px 16px 16px; border: 0; border-radius: 14px;
@@ -321,6 +326,7 @@
         <!-- Swap for the public TestFlight link once external testing is open:
              <a class="soon" href="https://testflight.apple.com/join/…">iPhone app on TestFlight</a> -->
         <p class="iphone-soon"><span class="soon">iPhone app · TestFlight coming&nbsp;soon</span></p>
+        <p class="hero-links"><a class="text-link" href="#tour">See how it works</a> · <a class="text-link" href="#films">Watch the videos</a></p>
       </div>
       <button class="mascot" type="button" id="mascot" aria-label="Play the Claudster mascot waking up">
         <video id="mascot-video" muted playsinline preload="auto" poster="assets/mascot-asleep.jpg" aria-hidden="true">
@@ -357,7 +363,7 @@
           <button class="callout" type="button" role="tab" data-go="0" aria-selected="true"><span class="bar" aria-hidden="true"></span><strong>Compact.</strong> The window folds down to the header and filters, and unfolds when you point at it.</button>
           <button class="callout" type="button" role="tab" data-go="1" aria-selected="false"><span class="bar" aria-hidden="true"></span><strong>The dashboard window.</strong> Every card shows what the session is on, the question it's waiting on, and buttons to queue a task or jump to its terminal.</button>
           <button class="callout" type="button" role="tab" data-go="2" aria-selected="false"><span class="bar" aria-hidden="true"></span><strong>In the menu bar.</strong> Every project with its state and icon. Click one to bring its terminal forward.</button>
-          <button class="callout" type="button" role="tab" data-go="3" aria-selected="false"><span class="bar" aria-hidden="true"></span><strong>On your iPhone.</strong> The same board in an app: answer, queue a task or start a session from the couch. <span class="soon">TestFlight · coming&nbsp;soon</span></button>
+          <button class="callout" type="button" role="tab" data-go="3" aria-selected="false"><span class="bar" aria-hidden="true"></span><strong>On your iPhone.</strong> The same board in an app: answer, queue a task or start a session from the couch. It talks to your Mac directly over your own Wi-Fi, never through a&nbsp;server. <span class="soon">TestFlight · coming&nbsp;soon</span></button>
         </div>
       </div>
       <div class="features">
