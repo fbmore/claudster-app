@@ -5,5 +5,16 @@
     <link>https://claudster.dev/appcast.xml</link>
     <description>Updates for Claudster for Mac.</description>
     <language>en</language>
+    <item>
+      <title>Claudster 1.5.7</title>
+      <pubDate>Fri, 13 Nov 2026 18:38:13 GMT</pubDate>
+      <sparkle:version>202611131336</sparkle:version>
+      <sparkle:shortVersionString>1.5.7</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <sparkle:fullReleaseNotesLink>https://github.com/fbmore/claudster-app/releases/tag/v1.5.7</sparkle:fullReleaseNotesLink>
+      <description><![CDATA[<h3>What's new in 1.5.7</h3><ul><li>In-app updates with Sparkle: a daily check of claudster.dev/appcast.xml, Check for Updates… in the menu and Settings, EdDSA-signed DMGs; release.sh signs each DMG and adds it to the feed</li><li>Welcome guide&#x27;s last page shows the real menu bar icon: Claudster&#x27;s face in the chosen style, the orange dot and the count</li><li>Mac welcome guide looks like the iPhone onboarding: cream paper, a Claudster clip on every page (cut after the 4 s wake-up, keyed to the page, with sound and a mute button), accent footer; Return installs on step 1</li><li>Recording notes: transcribe with SpeechTranscriber, which hears real microphone recordings that DictationTranscriber returned nothing for</li><li>Screen recordings: optional microphone, clicks drawn in, and notes for Claude (transcript with times, click timeline)</li><li>The puck sits on the dashboard&#x27;s top edge while it&#x27;s open; its ring splits red and orange by count</li><li>Puck: hand cursors that work while Claudster is in the background; a shorter high five</li><li>Keep on top: orange and filled when on</li><li>Puck: open hand on hover, closed hand while dragging</li><li>Puck hover: a quick close-up of the high-five palm; click opens at once; arrow cursor</li><li>Puck: the high five on hover and click; no see-through blink; glow only when what needs you changes</li></ul>]]></description>
+      <enclosure url="https://github.com/fbmore/claudster-app/releases/download/v1.5.7/Claudster-1.5.7.dmg" type="application/octet-stream"
+        sparkle:edSignature="Tktny0yKnrsWEjVF1+TajQVcirWbZ/mH7+nXar/2ZNDXL+jizwtjd5GLR/HiNF53Uv6ioC4STYeByKdhmGPrAw==" length="12234708"/>
+    </item>
   </channel>
 </rss>
