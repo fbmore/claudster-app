@@ -6,6 +6,17 @@
     <description>Updates for Claudster for Mac.</description>
     <language>en</language>
     <item>
+      <title>Claudster 1.5.8</title>
+      <pubDate>Fri, 13 Nov 2026 19:23:36 GMT</pubDate>
+      <sparkle:version>202611131422</sparkle:version>
+      <sparkle:shortVersionString>1.5.8</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <sparkle:fullReleaseNotesLink>https://github.com/fbmore/claudster-app/releases/tag/v1.5.8</sparkle:fullReleaseNotesLink>
+      <description><![CDATA[<h3>What's new in 1.5.8</h3><ul><li>Settings window 50% taller (590 pt), so General fits without scrolling</li><li>Welcome guide: ← and → turn the pages, and so does a sideways trackpad swipe</li></ul>]]></description>
+      <enclosure url="https://github.com/fbmore/claudster-app/releases/download/v1.5.8/Claudster-1.5.8.dmg" type="application/octet-stream"
+        sparkle:edSignature="1/cuBv+RCpxsbmD7rsFztDQdgecBjRs87A21GALoXmKLTcDMtJAxMIyBgeu+XWK0JDHUUaPr5UE44zR59zJxCA==" length="12237821"/>
+    </item>
+    <item>
       <title>Claudster 1.5.7</title>
       <pubDate>Fri, 13 Nov 2026 18:38:13 GMT</pubDate>
       <sparkle:version>202611131336</sparkle:version>
