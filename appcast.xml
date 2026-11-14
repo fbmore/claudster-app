@@ -6,6 +6,17 @@
     <description>Updates for Claudster for Mac.</description>
     <language>en</language>
     <item>
+      <title>Claudster 1.5.10</title>
+      <pubDate>Sat, 14 Nov 2026 05:12:02 GMT</pubDate>
+      <sparkle:version>202611140010</sparkle:version>
+      <sparkle:shortVersionString>1.5.10</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <sparkle:fullReleaseNotesLink>https://github.com/fbmore/claudster-app/releases/tag/v1.5.10</sparkle:fullReleaseNotesLink>
+      <description><![CDATA[<h3>What's new in 1.5.10</h3><ul><li>Sketchpad: a pencil in each card&#x27;s input opens a drawing sheet (four pens, fine or bold, Pencil pressure, undo, clear); Attach adds it to the task as a PNG</li><li>Dropping a folder on a card adds its path, not its contents: a small folder chip (path on hover), sent as a line of the task&#x27;s text</li><li>Preview Site: a web project&#x27;s site, live and zoomed out (50% by default), in a small Mac window</li></ul>]]></description>
+      <enclosure url="https://github.com/fbmore/claudster-app/releases/download/v1.5.10/Claudster-1.5.10.dmg" type="application/octet-stream"
+        sparkle:edSignature="xM71zIo9hKY6BtP4E86E6Nx36HF1zHmbtkl6kn6n9sEm5VaDnD4r+hRyjjgizr/0SjiGPam7tzbfJfRnusUgCw==" length="12552799"/>
+    </item>
+    <item>
       <title>Claudster 1.5.9</title>
       <pubDate>Sat, 14 Nov 2026 04:15:15 GMT</pubDate>
       <sparkle:version>202611132314</sparkle:version>
