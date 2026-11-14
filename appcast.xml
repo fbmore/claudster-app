@@ -6,6 +6,17 @@
     <description>Updates for Claudster for Mac.</description>
     <language>en</language>
     <item>
+      <title>Claudster 1.5.12</title>
+      <pubDate>Sat, 14 Nov 2026 06:44:55 GMT</pubDate>
+      <sparkle:version>202611140143</sparkle:version>
+      <sparkle:shortVersionString>1.5.12</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <sparkle:fullReleaseNotesLink>https://github.com/fbmore/claudster-app/releases/tag/v1.5.12</sparkle:fullReleaseNotesLink>
+      <description><![CDATA[<h3>What's new in 1.5.12</h3><ul><li>iPhone: pull to refresh shows the running mascot (he throws off his scarf) instead of the spinner, on iOS 18</li><li>iPhone: tap an attached image in the reply box to see it full screen, crop it or mark it up (PencilKit) before sending</li><li>Mark Up in the iPhone site preview adds the picture and note to the card&#x27;s reply box instead of sending</li><li>iPhone site preview survives turning the phone, and Mark Up draws on a frame of it: four pens, fine or bold, eraser, undo, a note, Send attaches it to the session</li><li>iPhone board: no Refresh button top right; pull to refresh does it</li><li>Site preview on the iPhone: when nothing serves the project, Ask the Session to Start It sends the request and the phone watches until the site is up; Look Again re-checks</li><li>Blur in the sketch: drag a box over anything private and it&#x27;s pixelated in the picture itself, so it never reaches the session</li><li>Mark Up an attachment: a pencil in the enlarged view of an attached image or PDF opens it in the sketch, sized to it; Attach puts the marked-up PNG in its place</li><li>iPhone Picture in Picture: drop the temporary test hook; the header shows two counts at most so it isn&#x27;t cut off</li><li>Site preview on the iPhone: a project&#x27;s preview window streamed live; tap to click, drag to scroll, pinch to zoom, type into the field in focus, Back, Reload, Open in Safari</li></ul>]]></description>
+      <enclosure url="https://github.com/fbmore/claudster-app/releases/download/v1.5.12/Claudster-1.5.12.dmg" type="application/octet-stream"
+        sparkle:edSignature="mZq/U6tdyZd8bg0ocrBQGRVJVw3uW8spy48AyEF54TNWNUZil2nj9ER1Zv4TFN7v2A12A7mdom9ObDbL0+Z4DQ==" length="12843570"/>
+    </item>
+    <item>
       <title>Claudster 1.5.11</title>
       <pubDate>Sat, 14 Nov 2026 05:48:12 GMT</pubDate>
       <sparkle:version>202611140047</sparkle:version>
