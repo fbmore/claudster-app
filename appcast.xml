@@ -6,6 +6,17 @@
     <description>Updates for Claudster for Mac.</description>
     <language>en</language>
     <item>
+      <title>Claudster 1.5.11</title>
+      <pubDate>Sat, 14 Nov 2026 05:48:12 GMT</pubDate>
+      <sparkle:version>202611140047</sparkle:version>
+      <sparkle:shortVersionString>1.5.11</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <sparkle:fullReleaseNotesLink>https://github.com/fbmore/claudster-app/releases/tag/v1.5.11</sparkle:fullReleaseNotesLink>
+      <description><![CDATA[<h3>What's new in 1.5.11</h3><ul><li>Sketch folds the dashboard into the puck while it&#x27;s up, so it&#x27;s neither in the picture nor in the way; Cancel brings it back, Attach flies the sketch into it</li><li>Mac sketchpad over the screen: a floating, resizable sheet whose Paper slider goes from white to clear, to mark up what&#x27;s behind it</li><li>Element picker in the site preview: Select (⇧⌘C), hover to outline, click to pick; a note sheet, then the element goes to the project&#x27;s card</li></ul>]]></description>
+      <enclosure url="https://github.com/fbmore/claudster-app/releases/download/v1.5.11/Claudster-1.5.11.dmg" type="application/octet-stream"
+        sparkle:edSignature="qpx1/vtlZZPv8XjrX1vun5Gdftyug9cTOPw2dQsFi1B+/xyIJFENlZAf1WhgS06SAQ7TdLZQ6419X0Lcx3ijCw==" length="12765881"/>
+    </item>
+    <item>
       <title>Claudster 1.5.10</title>
       <pubDate>Sat, 14 Nov 2026 05:12:02 GMT</pubDate>
       <sparkle:version>202611140010</sparkle:version>
