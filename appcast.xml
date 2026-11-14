@@ -6,6 +6,17 @@
     <description>Updates for Claudster for Mac.</description>
     <language>en</language>
     <item>
+      <title>Claudster 1.5.9</title>
+      <pubDate>Sat, 14 Nov 2026 04:15:15 GMT</pubDate>
+      <sparkle:version>202611132314</sparkle:version>
+      <sparkle:shortVersionString>1.5.9</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <sparkle:fullReleaseNotesLink>https://github.com/fbmore/claudster-app/releases/tag/v1.5.9</sparkle:fullReleaseNotesLink>
+      <description><![CDATA[<h3>What's new in 1.5.9</h3><ul><li>Keep Mac reachable: an IOKit PreventUserIdleSystemSleep assertion while a session runs or the phone is connected, released after a grace period (10 min by default), on quit and on stop</li></ul>]]></description>
+      <enclosure url="https://github.com/fbmore/claudster-app/releases/download/v1.5.9/Claudster-1.5.9.dmg" type="application/octet-stream"
+        sparkle:edSignature="F8O72VWL3KyZ8Shrp3mlSyhUokw4Gq3VATt7O/WxzYvZKRRT5LG0da4xIynDdYPTygBliKhkwg3VrI8/eukwCQ==" length="12413770"/>
+    </item>
+    <item>
       <title>Claudster 1.5.8</title>
       <pubDate>Fri, 13 Nov 2026 19:23:36 GMT</pubDate>
       <sparkle:version>202611131422</sparkle:version>
