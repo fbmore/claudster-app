@@ -6,6 +6,17 @@
     <description>Updates for Claudster for Mac.</description>
     <language>en</language>
     <item>
+      <title>Claudster 1.5.13</title>
+      <pubDate>Sun, 15 Nov 2026 16:01:08 GMT</pubDate>
+      <sparkle:version>202611151059</sparkle:version>
+      <sparkle:shortVersionString>1.5.13</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <sparkle:fullReleaseNotesLink>https://github.com/fbmore/claudster-app/releases/tag/v1.5.13</sparkle:fullReleaseNotesLink>
+      <description><![CDATA[<h3>What's new in 1.5.13</h3><ul><li>Reach the Mac away from home: an end-to-end encrypted relay on Cloudflare Workers (free plan)</li><li>iPhone build 24</li><li>iPhone remembers the Mac&#x27;s password: after a typed password unlocks the Mac, offer Remember / Not Now / Never; saved in this iPhone&#x27;s Keychain behind Face ID and filled in by itself next time the same Mac is locked, with an offer to replace it if it stops working</li><li>iPhone reply box: the Paste button shows on a device (UIPasteControl is hidden when overlaid or clipped, so the border draws underneath, the box rounds itself without a clip, and the control sits inset from the corner)</li><li>iPhone dictation keeps every sentence: commit each finished sentence before iOS restarts the transcript, and treat a restarted transcript as new speech, never a replacement</li><li>iPhone pull to refresh: hold the board down and the mascot smokes, turns from orange to red and burns away (Metal shaders); footstep haptics while he runs</li><li>iPhone build 23</li></ul>]]></description>
+      <enclosure url="https://github.com/fbmore/claudster-app/releases/download/v1.5.13/Claudster-1.5.13.dmg" type="application/octet-stream"
+        sparkle:edSignature="WYcY/pJiTvH7Avn6IcUpkBFcaqXdykiSJninq3g1AGgpNJ378O6YOP/bq0bgD3+1aztA8X/d1UfBaKSJL9XKDA==" length="13138502"/>
+    </item>
+    <item>
       <title>Claudster 1.5.12</title>
       <pubDate>Sat, 14 Nov 2026 06:44:55 GMT</pubDate>
       <sparkle:version>202611140143</sparkle:version>
