@@ -6,6 +6,17 @@
     <description>Updates for Claudster for Mac.</description>
     <language>en</language>
     <item>
+      <title>Claudster 1.5.14</title>
+      <pubDate>Wed, 18 Nov 2026 04:39:00 GMT</pubDate>
+      <sparkle:version>202611172337</sparkle:version>
+      <sparkle:shortVersionString>1.5.14</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <sparkle:fullReleaseNotesLink>https://github.com/fbmore/claudster-app/releases/tag/v1.5.14</sparkle:fullReleaseNotesLink>
+      <description><![CDATA[<h3>What's new in 1.5.14</h3><ul><li>iPhone build 26</li><li>The mascot burns for real: held down, he chars and cracks, then burns away in noisy patches with a white-hot to orange to char edge, shedding embers under a heat haze, with a flicker and crackling haptics, all driven by one progress value</li><li>Ended worktrees leave the dashboard: a linked git worktree&#x27;s card shows only while a session runs in it, so a finished side branch no longer sits beside the real windows as another open card</li><li>iPhone build 25</li></ul>]]></description>
+      <enclosure url="https://github.com/fbmore/claudster-app/releases/download/v1.5.14/Claudster-1.5.14.dmg" type="application/octet-stream"
+        sparkle:edSignature="H4OIQ/lP7NwEiSA/KX7NXUFeRkSqplEFJ2g+1ok7OA525ozmyjEpLKP+BIyZR0Byaqi58TloC+uoJlv6Z7rHDg==" length="13083393"/>
+    </item>
+    <item>
       <title>Claudster 1.5.13</title>
       <pubDate>Sun, 15 Nov 2026 16:01:08 GMT</pubDate>
       <sparkle:version>202611151059</sparkle:version>
