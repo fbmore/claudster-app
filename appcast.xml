@@ -6,6 +6,17 @@
     <description>Updates for Claudster for Mac.</description>
     <language>en</language>
     <item>
+      <title>Claudster 1.5.21</title>
+      <pubDate>Fri, 20 Nov 2026 18:18:57 GMT</pubDate>
+      <sparkle:version>202611201317</sparkle:version>
+      <sparkle:shortVersionString>1.5.21</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <sparkle:fullReleaseNotesLink>https://github.com/fbmore/claudster-app/releases/tag/v1.5.21</sparkle:fullReleaseNotesLink>
+      <description><![CDATA[<h3>What's new in 1.5.21</h3><ul><li>Codex sessions on the board: an agent layer for Claude Code and OpenAI&#x27;s Codex CLI</li><li>iPhone build 34 (ask several projects at once)</li></ul>]]></description>
+      <enclosure url="https://github.com/fbmore/claudster-app/releases/download/v1.5.21/Claudster-1.5.21.dmg" type="application/octet-stream"
+        sparkle:edSignature="Yc+qbgxvB73WvzKWcHqDTOcrgt6A8cEIA4pdRW785etIgauj+N/xIlK1QGN0P2+TtvlMHOFbdPzE5uej+q9YAA==" length="13400579"/>
+    </item>
+    <item>
       <title>Claudster 1.5.20</title>
       <pubDate>Fri, 20 Nov 2026 17:21:00 GMT</pubDate>
       <sparkle:version>202611201219</sparkle:version>
