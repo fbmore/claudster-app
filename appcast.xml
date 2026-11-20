@@ -6,6 +6,17 @@
     <description>Updates for Claudster for Mac.</description>
     <language>en</language>
     <item>
+      <title>Claudster 1.5.20</title>
+      <pubDate>Fri, 20 Nov 2026 17:21:00 GMT</pubDate>
+      <sparkle:version>202611201219</sparkle:version>
+      <sparkle:shortVersionString>1.5.20</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <sparkle:fullReleaseNotesLink>https://github.com/fbmore/claudster-app/releases/tag/v1.5.20</sparkle:fullReleaseNotesLink>
+      <description><![CDATA[<h3>What's new in 1.5.20</h3><ul><li>Ask several projects at once: one request goes to each project&#x27;s own Claude session (dashboard &quot;Ask all&quot; pill, iPhone megaphone tile)</li></ul>]]></description>
+      <enclosure url="https://github.com/fbmore/claudster-app/releases/download/v1.5.20/Claudster-1.5.20.dmg" type="application/octet-stream"
+        sparkle:edSignature="simg+o5UMp3po0+AuRYHQOnmUzg0yClBil22MtC5mfEi44iyIjNbxIqfrxu4q2TCFn498tpx6HVw5DvVP1xZAQ==" length="13333974"/>
+    </item>
+    <item>
       <title>Claudster 1.5.19</title>
       <pubDate>Fri, 20 Nov 2026 14:12:09 GMT</pubDate>
       <sparkle:version>202611200910</sparkle:version>
