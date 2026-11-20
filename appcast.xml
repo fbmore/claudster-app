@@ -6,6 +6,17 @@
     <description>Updates for Claudster for Mac.</description>
     <language>en</language>
     <item>
+      <title>Claudster 1.5.16</title>
+      <pubDate>Fri, 20 Nov 2026 02:48:37 GMT</pubDate>
+      <sparkle:version>202611192146</sparkle:version>
+      <sparkle:shortVersionString>1.5.16</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <sparkle:fullReleaseNotesLink>https://github.com/fbmore/claudster-app/releases/tag/v1.5.16</sparkle:fullReleaseNotesLink>
+      <description><![CDATA[<h3>What's new in 1.5.16</h3><ul><li>iPhone project: drop a reference to ProjectAvatar.swift that another session&#x27;s uncommitted work added (it slipped into the build 29 commit, so main could not build)</li><li>iPhone build 30 (build 29 was archived while another session was mid-edit; this one is the committed code only)</li><li>iPhone build 29</li><li>Markdown renders everywhere: bold, italics and code show styled in headlines, questions, recaps, next steps, history, queued items and captions on the web dashboard, iPhone app, widget and PiP; menus, tab titles and notifications drop the markers instead of showing **</li></ul>]]></description>
+      <enclosure url="https://github.com/fbmore/claudster-app/releases/download/v1.5.16/Claudster-1.5.16.dmg" type="application/octet-stream"
+        sparkle:edSignature="hmX22aIJu4+6213ygMzPjtG9+NaSZnTxeguuVu2raPDqR6G5i0/9QuSzCjjRLcG/Mnwy9D9SwoUSj0Fvk3ExAg==" length="13171451"/>
+    </item>
+    <item>
       <title>Claudster 1.5.15</title>
       <pubDate>Fri, 20 Nov 2026 02:27:02 GMT</pubDate>
       <sparkle:version>202611192125</sparkle:version>
