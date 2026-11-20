@@ -6,6 +6,17 @@
     <description>Updates for Claudster for Mac.</description>
     <language>en</language>
     <item>
+      <title>Claudster 1.5.17</title>
+      <pubDate>Fri, 20 Nov 2026 02:53:27 GMT</pubDate>
+      <sparkle:version>202611192151</sparkle:version>
+      <sparkle:shortVersionString>1.5.17</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <sparkle:fullReleaseNotesLink>https://github.com/fbmore/claudster-app/releases/tag/v1.5.17</sparkle:fullReleaseNotesLink>
+      <description><![CDATA[<h3>What's new in 1.5.17</h3><ul><li>iPhone build 32 (alerts from the project; 31 was refused as already uploaded, so the 31 commit before this never shipped)</li><li>iPhone build 31 (alerts from the project; my first upload reused 30, which another session had already shipped)</li><li>Alerts come from the project: its icon and &quot;Fernway needs you&quot;, with Claudster&#x27;s icon small in the corner</li></ul>]]></description>
+      <enclosure url="https://github.com/fbmore/claudster-app/releases/download/v1.5.17/Claudster-1.5.17.dmg" type="application/octet-stream"
+        sparkle:edSignature="VQUZSYhEdKUSPytvXf2QuDcu0KEf//c6PEVRkHEuJTCKuSuXW7jn+esMyg4OoZ/VdYfnuAreRk5/gcTSKwzMBw==" length="13175315"/>
+    </item>
+    <item>
       <title>Claudster 1.5.16</title>
       <pubDate>Fri, 20 Nov 2026 02:48:37 GMT</pubDate>
       <sparkle:version>202611192146</sparkle:version>
