@@ -6,6 +6,17 @@
     <description>Updates for Claudster for Mac.</description>
     <language>en</language>
     <item>
+      <title>Claudster 1.5.15</title>
+      <pubDate>Fri, 20 Nov 2026 02:27:02 GMT</pubDate>
+      <sparkle:version>202611192125</sparkle:version>
+      <sparkle:shortVersionString>1.5.15</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <sparkle:fullReleaseNotesLink>https://github.com/fbmore/claudster-app/releases/tag/v1.5.15</sparkle:fullReleaseNotesLink>
+      <description><![CDATA[<h3>What's new in 1.5.15</h3><ul><li>iPhone build 28</li><li>Queued prompts stay editable until delivered, and a + after the project tabs starts a new Claude session anywhere</li><li>iPhone build 27</li><li>iPhone reply box: the Paste icon never vanishes (iOS hides the secure Paste control whenever the edge blur or a transition passes over it; the same glyph now sits underneath and a tap the control doesn&#x27;t turn into a paste is pasted directly)</li></ul>]]></description>
+      <enclosure url="https://github.com/fbmore/claudster-app/releases/download/v1.5.15/Claudster-1.5.15.dmg" type="application/octet-stream"
+        sparkle:edSignature="1k1ELRy9yTpvH7FritSLhNddcgF4u2rcuIaqquTL4JmKOZ8n1Tf2JSdtDJdMu/QQ/dbRWSe+8ucQ3fSvK1X5Cw==" length="13161671"/>
+    </item>
+    <item>
       <title>Claudster 1.5.14</title>
       <pubDate>Wed, 18 Nov 2026 04:39:00 GMT</pubDate>
       <sparkle:version>202611172337</sparkle:version>
