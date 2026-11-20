@@ -6,6 +6,17 @@
     <description>Updates for Claudster for Mac.</description>
     <language>en</language>
     <item>
+      <title>Claudster 1.5.18</title>
+      <pubDate>Fri, 20 Nov 2026 03:34:49 GMT</pubDate>
+      <sparkle:version>202611192232</sparkle:version>
+      <sparkle:shortVersionString>1.5.18</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <sparkle:fullReleaseNotesLink>https://github.com/fbmore/claudster-app/releases/tag/v1.5.18</sparkle:fullReleaseNotesLink>
+      <description><![CDATA[<h3>What's new in 1.5.18</h3><ul><li>Site preview skips Claude Code&#x27;s own port: every session listens on localhost from inside the project (as &quot;2.1.328&quot;), and the preview opened it as the site and showed &quot;not found&quot;</li></ul>]]></description>
+      <enclosure url="https://github.com/fbmore/claudster-app/releases/download/v1.5.18/Claudster-1.5.18.dmg" type="application/octet-stream"
+        sparkle:edSignature="oewamPvEF0gtTdxGQXukFs/VTNoXxHS4CLWz0TbFreY6uVSKdMJtduWkLK/0NqI7uSexRvRcnIIMo6fxYPaoDQ==" length="13177906"/>
+    </item>
+    <item>
       <title>Claudster 1.5.17</title>
       <pubDate>Fri, 20 Nov 2026 02:53:27 GMT</pubDate>
       <sparkle:version>202611192151</sparkle:version>
