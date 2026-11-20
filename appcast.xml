@@ -6,6 +6,17 @@
     <description>Updates for Claudster for Mac.</description>
     <language>en</language>
     <item>
+      <title>Claudster 1.5.19</title>
+      <pubDate>Fri, 20 Nov 2026 14:12:09 GMT</pubDate>
+      <sparkle:version>202611200910</sparkle:version>
+      <sparkle:shortVersionString>1.5.19</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <sparkle:fullReleaseNotesLink>https://github.com/fbmore/claudster-app/releases/tag/v1.5.19</sparkle:fullReleaseNotesLink>
+      <description><![CDATA[<h3>What's new in 1.5.19</h3><ul><li>Share to Claudster from any iPhone app: images, files, links and text go to a chosen terminal window, or to a new window opened for them</li><li>Queued prompts can be 20,000 characters, up from 2,000 (Mac queue, web text boxes, iPhone Send button)</li></ul>]]></description>
+      <enclosure url="https://github.com/fbmore/claudster-app/releases/download/v1.5.19/Claudster-1.5.19.dmg" type="application/octet-stream"
+        sparkle:edSignature="dW/Kdyvi8V2SZNCYTo0VUu9aA58ix3B3KKohcSVsMJzenb81/j/9WeUZ0JlaBuElbSCwUXL4vJL+IND65uBKAQ==" length="13194194"/>
+    </item>
+    <item>
       <title>Claudster 1.5.18</title>
       <pubDate>Fri, 20 Nov 2026 03:34:49 GMT</pubDate>
       <sparkle:version>202611192232</sparkle:version>
