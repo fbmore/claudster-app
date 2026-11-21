@@ -6,6 +6,17 @@
     <description>Updates for Claudster for Mac.</description>
     <language>en</language>
     <item>
+      <title>Claudster 1.5.22</title>
+      <pubDate>Sat, 21 Nov 2026 19:48:43 GMT</pubDate>
+      <sparkle:version>202611211446</sparkle:version>
+      <sparkle:shortVersionString>1.5.22</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <sparkle:fullReleaseNotesLink>https://github.com/fbmore/claudster-app/releases/tag/v1.5.22</sparkle:fullReleaseNotesLink>
+      <description><![CDATA[<h3>What's new in 1.5.22</h3><ul><li>Slash commands in the composer: type &quot;/&quot; for the session&#x27;s commands</li><li>claudster-hook status names the agent&#x27;s own folder (~/.codex for Codex)</li></ul>]]></description>
+      <enclosure url="https://github.com/fbmore/claudster-app/releases/download/v1.5.22/Claudster-1.5.22.dmg" type="application/octet-stream"
+        sparkle:edSignature="PmERzIzD15j1U8TVZ4oY7bchaWU+6PeXzo+cKGk/RSvBTR1Wge7KlIyl+5hRut76JGNqzROUmDss8mLtYNPlDA==" length="13521662"/>
+    </item>
+    <item>
       <title>Claudster 1.5.21</title>
       <pubDate>Fri, 20 Nov 2026 18:18:57 GMT</pubDate>
       <sparkle:version>202611201317</sparkle:version>
