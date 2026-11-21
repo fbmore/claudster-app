@@ -6,6 +6,17 @@
     <description>Updates for Claudster for Mac.</description>
     <language>en</language>
     <item>
+      <title>Claudster 1.5.23</title>
+      <pubDate>Sat, 21 Nov 2026 20:36:15 GMT</pubDate>
+      <sparkle:version>202611211534</sparkle:version>
+      <sparkle:shortVersionString>1.5.23</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <sparkle:fullReleaseNotesLink>https://github.com/fbmore/claudster-app/releases/tag/v1.5.23</sparkle:fullReleaseNotesLink>
+      <description><![CDATA[<h3>What's new in 1.5.23</h3><ul><li>iPhone build 36 (find your Mac through Keychain)</li><li>Find your Mac through Keychain: no QR code, even away from home</li><li>iPhone build 35 (slash commands in the reply box)</li></ul>]]></description>
+      <enclosure url="https://github.com/fbmore/claudster-app/releases/download/v1.5.23/Claudster-1.5.23.dmg" type="application/octet-stream"
+        sparkle:edSignature="9F7prZU04rLCnV8zRRuloO6kwa31GmCTwIEau4NbCtKIud1W5XS1Y5r7y8vGAOgOriSaVIbU6PUxPhPmr95YBA==" length="13610806"/>
+    </item>
+    <item>
       <title>Claudster 1.5.22</title>
       <pubDate>Sat, 21 Nov 2026 19:48:43 GMT</pubDate>
       <sparkle:version>202611211446</sparkle:version>
