@@ -44,7 +44,7 @@
     <h2>A project doesn't show up</h2>
     <ul>
       <li>Claudster looks for Git repositories up to two levels inside the folders in <strong>Settings › Folders</strong> (by default <code>~/Developer</code>). Add the folder that holds your projects.</li>
-      <li>A card appears once a Claude Code session in that project has reported. Sessions already running start reporting after you install, with no restart needed.</li>
+      <li>A card appears once a Claude Code or Codex session in that project has reported. Sessions already running start reporting after you install, with no restart needed.</li>
       <li>Check that <strong>Settings › Claude Code</strong> says <em>Installed</em> and shows all hooks. If you moved the app, choose <strong>Repair Hooks</strong> in the menu.</li>
     </ul>
 
@@ -61,11 +61,32 @@
       <li>The link carries a private key. If someone else gets it, they can see your sessions; keep it to yourself.</li>
     </ul>
 
+    <h2 id="codex">Codex sessions</h2>
+    <p>Claudster shows OpenAI's Codex CLI sessions on the same board. In <strong>Settings › Claude Code</strong>, under <em>Codex</em>, click <strong>Install</strong>: the hooks go in <code>~/.codex/hooks.json</code> beside your own, and the status skill in <code>~/.agents/skills/</code>. Codex asks you to trust new hooks once: type <code>/hooks</code> in a Codex session. It needs a Codex CLI version with hooks, and a <code>~/.codex</code> folder, which Codex makes the first time it runs.</p>
+
     <h2>Notifications</h2>
     <p>Claudster notifies you when a session starts waiting on you or fails. Change how they appear in <strong>System Settings › Notifications › Claudster</strong>.</p>
 
     <h2>Queue and Send now</h2>
     <p>Type a task on a card and choose <strong>Queue</strong>: the session receives it at its next turn. <strong>Send now</strong> wakes an idle session by typing one fixed line into its terminal. It never types into a session that is waiting on a question, so it can't answer a prompt for you.</p>
+    <p>A queued task stays editable until the session picks it up: click it on the card to change the text or its attachments. A task can be up to 20,000 characters.</p>
+    <p>The <strong>+</strong> after the project tabs starts a new session in any project: Claude Code, or Codex if you choose it under <em>New sessions run</em> in Settings › Claude Code.</p>
+
+    <h2 id="slash">Slash commands</h2>
+    <p>Type <strong>/</strong> at the start of a reply box, on the dashboard or in the iPhone app, to see the session's commands: the agent's own (such as <code>/compact</code>), your commands and skills, the project's, and installed plugins'. The agent's own commands are typed straight into its terminal; the rest are queued like any task. If the list can't load (the Mac is out of reach, or the session's folder can't be read), the box says why and tries again.</p>
+
+    <h2 id="ask-all">Ask several projects at once</h2>
+    <p>Choose <strong>Ask all</strong> on the dashboard (on the iPhone, the megaphone tile), pick the projects, and type one request. Each project's own session gets it and works on it there, so the answers come back on each card. With no project picked it goes to all of them.</p>
+
+    <h2 id="show">Previews, sketches and mark-up</h2>
+    <ul>
+      <li><strong>Preview Site</strong>, in a card's ⋯ menu, opens the site the project serves, live and zoomed out, in a small window. <strong>Select</strong> (⇧⌘C) lets you click an element and add a note; it goes to the card. On the iPhone, the preview streams live: tap to click, drag to scroll, pinch to zoom. If nothing is serving the project, ask the session to start it.</li>
+      <li>The pencil in a card's reply box opens a sketch sheet over the screen, with four pens, an eraser and a <em>Paper</em> slider from white to clear for drawing over what's behind it. Drag a box with the blur tool over anything private: it's pixelated in the picture itself, so it never reaches the session.</li>
+      <li>Click an attached image or PDF, then the pencil, to mark it up before sending. On the iPhone, tap an attached image to crop or mark it up.</li>
+    </ul>
+
+    <h2 id="share">Share to Claudster from your iPhone</h2>
+    <p>In any app, tap Share and choose <strong>Claudster</strong>. Pick a project's terminal window, or <em>New window</em> to start a Claude Code session with it, then <strong>Send</strong>. Images, files, links and text go to your Mac and are queued for that session. If Claudster isn't in the share sheet, scroll to the end of the app row, tap <strong>More</strong> and turn it on.</p>
 
     <h2>Dictate a task</h2>
     <ul>
@@ -95,7 +116,7 @@
     <h2 id="uninstall">Uninstalling completely</h2>
     <ol>
       <li>In Settings, turn off <em>Put each project's icon on its folder</em>, <em>Label Terminal tabs</em> and <em>Open Claudster at login</em>.</li>
-      <li>In <strong>Settings › Claude Code</strong>, click <strong>Remove</strong> to take Claudster's hooks and skill out of Claude Code.</li>
+      <li>In <strong>Settings › Claude Code</strong>, click <strong>Remove</strong> to take Claudster's hooks and skill out of Claude Code, and the same for Codex if you installed it there.</li>
       <li>Quit Claudster and move it to the Trash.</li>
       <li>Delete <code>~/Library/Application Support/Claudster</code> and <code>~/Library/Caches/Claudster</code>.</li>
       <li>Optionally, delete the <code>.claude/status.json</code>, <code>events.jsonl</code>, <code>queue.json</code> and <code>screenshots/</code> files in your projects, and the Claudster lines in <code>~/.config/git/ignore</code>.</li>
@@ -109,7 +130,7 @@
 <footer>
   <div class="wrap">
     <p>© 2026 FRANCESCO BERTOCCI, LLC · <a href="support.html">Support</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="mailto:fbmore+claudster@gmail.com">fbmore+claudster@gmail.com</a></p>
-    <p>Claudster is an independent project and is not affiliated with, endorsed by, or sponsored by Anthropic. Claude and Claude Code are trademarks of Anthropic, PBC.</p>
+    <p>Claudster is an independent project and is not affiliated with, endorsed by, or sponsored by Anthropic. Claude and Claude Code are trademarks of Anthropic, PBC. Codex is made by OpenAI, which is not affiliated with Claudster either.</p>
   </div>
 </footer>
 </body>

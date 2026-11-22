@@ -29,7 +29,7 @@
   <div class="wrap">
 
     <h1>Privacy Policy</h1>
-    <p class="updated">Last updated November 11, 2026</p>
+    <p class="updated">Last updated November 22, 2026</p>
     <p class="lead">Claudster runs on your Mac and, if you use it, on your iPhone, which talks only to your own Mac. It has no account and no analytics. Away from home the iPhone reaches your Mac through Claudster's relay, end-to-end encrypted, so the relay can't read what passes through it. Nothing it handles is sent to us, ever.</p>
 
     <div class="summary">
@@ -42,11 +42,12 @@
     </div>
 
     <h2>What Claudster reads</h2>
-    <p>To show what each Claude Code session is doing, Claudster reads files that are already on your Mac:</p>
+    <p>To show what each Claude Code or Codex session is doing, Claudster reads files that are already on your Mac:</p>
     <ul>
       <li>The status files its helper writes in each project, at <code>.claude/status.json</code>.</li>
       <li>Claude Code's local session transcripts in <code>~/.claude/projects/</code>, for the recap Claude Code writes and for images in the session (ones you pasted, and screenshots a tool returned), so a card can show them.</li>
       <li>Claude Code's local image cache in <code>~/.claude/image-cache/</code>.</li>
+      <li>The names and one-line descriptions of your slash commands and skills, to suggest them when you type <strong>/</strong> in a reply box: your own in <code>~/.claude/commands/</code> and <code>~/.claude/skills/</code>, the project's in its <code>.claude/</code> folder, installed plugins' (listed in <code>~/.claude/plugins/installed_plugins.json</code>), and Codex's prompts in <code>~/.codex/prompts/</code>. It reads nothing else from these files.</li>
       <li>Files in your project folders that describe how a project looks (app icons, favicons, asset catalogs, CSS colors and web manifests), to give each card its icon and color.</li>
       <li>The list of running processes and their working folders, to find which terminal runs which session.</li>
     </ul>
@@ -63,7 +64,7 @@
         </ul>
         Claudster asks Git to ignore these files through your global Git ignore file, so they are not committed unless you add them yourself.</li>
       <li><strong>Session images</strong> copied out of transcripts, at most 8 per session, in <code>~/Library/Caches/Claudster/</code>.</li>
-      <li><strong>Claude Code settings.</strong> Installing adds Claudster's hooks to <code>~/.claude/settings.json</code> (backing it up first) and a skill to <code>~/.claude/skills/project-status/</code>. Your other settings are left as they are.</li>
+      <li><strong>Claude Code settings.</strong> Installing adds Claudster's hooks to <code>~/.claude/settings.json</code> (backing it up first) and a skill to <code>~/.claude/skills/project-status/</code>. If you also install for <strong>Codex</strong> (Settings › Claude Code › Codex), it adds the same hooks to <code>~/.codex/hooks.json</code> (or the folder set by <code>CODEX_HOME</code>) and the skill to <code>~/.agents/skills/project-status/</code>. Your other settings are left as they are.</li>
       <li><strong>Optional extras</strong>, only if you turn them on: a custom icon file inside each project folder, and titles and colors on Terminal tabs.</li>
     </ul>
 
@@ -81,7 +82,7 @@
     <p><strong>Finding your Mac through your Keychain.</strong> So your own iPhones can connect without scanning a QR code, even away from home, the Mac app saves one item in your Keychain, which syncs to your devices through iCloud Keychain: your Mac's name, its network address and port, its private access key and its relay identifier. iCloud Keychain is end-to-end encrypted by Apple: only devices signed in to your Apple Account can read it, not Apple and not us, and only Claudster's own apps can open this item. We never receive it. Turn it off in the Mac app's Settings › <strong>Share this Mac with my iPhones through Keychain</strong>, which deletes the item from all your devices.</p>
     <ul>
       <li><strong>What it keeps on the phone:</strong> the access key, in the iPhone's Keychain on this device only (the phone itself never syncs it; see Keychain above); your Mac's network address and relay identifier; only if you choose <strong>Remember</strong> after unlocking your Mac from the phone, your Mac's login password, in the Keychain on this device only, readable only after Face ID, Touch ID or your passcode, and typed only on that Mac's lock screen; and your settings, such as alerts, haptics, text size and which sessions you follow. Session details (projects, questions, recaps, screenshots) are shown while the app is open and are not saved.</li>
-      <li><strong>What it sends, and only to your Mac:</strong> the tasks you type or dictate, photos you attach or paste, and changes you make to the board, such as tile order and project looks.</li>
+      <li><strong>What it sends, and only to your Mac:</strong> the tasks you type or dictate, photos you attach or paste, what you share to Claudster from other apps with the Share button (images, files, links and text, sent only when you tap Send and only to the session you pick), and changes you make to the board, such as tile order and project looks.</li>
       <li><strong>Camera</strong>, only to scan the QR code that pairs the app with your Mac. No photo is taken or kept.</li>
       <li><strong>Microphone and Speech Recognition</strong>, only while you dictate a task. Apple's speech recognition turns your speech into text, on the iPhone where it can and otherwise on Apple's servers, under Apple's privacy policy. Claudster keeps no audio; the text goes to your Mac like a typed task.</li>
       <li><strong>Photos</strong>: you pick photos with the system picker, so the app sees only the ones you choose.</li>
@@ -113,13 +114,14 @@
     <h2>Other services</h2>
     <ul>
       <li><strong>Claude Code</strong> is made by Anthropic and has its own terms and privacy policy. Claudster only reads the files Claude Code keeps on your Mac and does not change what Claude Code sends to Anthropic.</li>
+      <li><strong>Codex</strong> is made by OpenAI and has its own terms and privacy policy. Claudster only adds its hooks and skill and reads what they report; it does not change what Codex sends to OpenAI.</li>
       <li><strong>GitHub</strong> hosts this website and the downloads. GitHub's privacy statement applies to visiting it.</li>
       <li><strong>This website</strong> counts visits with Foliàire Analytics: pages viewed, how far down a page you scroll and how long you stay. It sets no cookies, keeps a random session identifier in your browser's local storage, collects no personal data and honours Do Not Track. The app itself sends nothing.</li>
       <li>When a Claude Code session asks Claudster's helper to screenshot a web page, the helper opens it in a temporary, private copy of Chrome on your Mac, which is deleted afterwards.</li>
     </ul>
 
     <h2>Removing your data</h2>
-    <p>See <a href="support.html#uninstall">how to uninstall Claudster completely</a>. Removing the hooks in Settings › Claude Code stops all new status files, and deleting the folders listed above removes everything Claudster stored.</p>
+    <p>See <a href="support.html#uninstall">how to uninstall Claudster completely</a>. Removing the hooks in Settings › Claude Code (for Claude Code and for Codex) stops all new status files, and deleting the folders listed above removes everything Claudster stored.</p>
 
     <h2>Children's privacy</h2>
     <p>Claudster is a tool for software developers and is not directed at children. It collects no personal information from anyone.</p>
@@ -135,7 +137,7 @@
 <footer>
   <div class="wrap">
     <p>© 2026 FRANCESCO BERTOCCI, LLC · <a href="support.html">Support</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="mailto:fbmore+claudster@gmail.com">fbmore+claudster@gmail.com</a></p>
-    <p>Claudster is an independent project and is not affiliated with, endorsed by, or sponsored by Anthropic. Claude and Claude Code are trademarks of Anthropic, PBC.</p>
+    <p>Claudster is an independent project and is not affiliated with, endorsed by, or sponsored by Anthropic. Claude and Claude Code are trademarks of Anthropic, PBC. Codex is made by OpenAI, which is not affiliated with Claudster either.</p>
   </div>
 </footer>
 </body>
