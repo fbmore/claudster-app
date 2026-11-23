@@ -6,6 +6,17 @@
     <description>Updates for Claudster for Mac.</description>
     <language>en</language>
     <item>
+      <title>Claudster 1.5.24</title>
+      <pubDate>Mon, 23 Nov 2026 03:14:24 GMT</pubDate>
+      <sparkle:version>202611222212</sparkle:version>
+      <sparkle:shortVersionString>1.5.24</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <sparkle:fullReleaseNotesLink>https://github.com/fbmore/claudster-app/releases/tag/v1.5.24</sparkle:fullReleaseNotesLink>
+      <description><![CDATA[<h3>What's new in 1.5.24</h3><ul><li>Tile screen menu opens rightward when the row wraps, instead of running off the left edge</li><li>iPhone build 37 (slash suggestions retry and explain failures)</li><li>Slash suggestions retry and say why when commands can&#x27;t load</li></ul>]]></description>
+      <enclosure url="https://github.com/fbmore/claudster-app/releases/download/v1.5.24/Claudster-1.5.24.dmg" type="application/octet-stream"
+        sparkle:edSignature="fqrBb07zJGpXelcm5bEwsqETfElJ4HVFsVc8G3ricRNAe0GrMhjgdTJtCPsFbtBqbvMUV7OZw8jkUKFb0kV0AQ==" length="13615120"/>
+    </item>
+    <item>
       <title>Claudster 1.5.23</title>
       <pubDate>Sat, 21 Nov 2026 20:36:15 GMT</pubDate>
       <sparkle:version>202611211534</sparkle:version>
