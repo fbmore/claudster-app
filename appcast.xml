@@ -6,6 +6,17 @@
     <description>Updates for Claudster for Mac.</description>
     <language>en</language>
     <item>
+      <title>Claudster 1.5.26</title>
+      <pubDate>Wed, 25 Nov 2026 21:41:16 GMT</pubDate>
+      <sparkle:version>202611251639</sparkle:version>
+      <sparkle:shortVersionString>1.5.26</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <sparkle:fullReleaseNotesLink>https://github.com/fbmore/claudster-app/releases/tag/v1.5.26</sparkle:fullReleaseNotesLink>
+      <description><![CDATA[<h3>What's new in 1.5.26</h3><ul><li>iPhone build 39 (sharing a full-page screenshot sends a real image)</li><li>Dashboard: no force-click link previews over the composer</li></ul>]]></description>
+      <enclosure url="https://github.com/fbmore/claudster-app/releases/download/v1.5.26/Claudster-1.5.26.dmg" type="application/octet-stream"
+        sparkle:edSignature="VJsk8SomuFGnXfNOpFkgjH6y+aeFs3491y59wU5deYmeTu4PNQifcnmn+zW5qq1rcHRngi511dGyDbsHzxVOCA==" length="13664591"/>
+    </item>
+    <item>
       <title>Claudster 1.5.25</title>
       <pubDate>Wed, 25 Nov 2026 16:44:48 GMT</pubDate>
       <sparkle:version>202611251142</sparkle:version>
