@@ -6,6 +6,17 @@
     <description>Updates for Claudster for Mac.</description>
     <language>en</language>
     <item>
+      <title>Claudster 1.5.25</title>
+      <pubDate>Wed, 25 Nov 2026 16:44:48 GMT</pubDate>
+      <sparkle:version>202611251142</sparkle:version>
+      <sparkle:shortVersionString>1.5.25</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <sparkle:fullReleaseNotesLink>https://github.com/fbmore/claudster-app/releases/tag/v1.5.25</sparkle:fullReleaseNotesLink>
+      <description><![CDATA[<h3>What's new in 1.5.25</h3><ul><li>Focus follows a Terminal window to its Space; the shortcut raises a covered dashboard</li><li>Cards and Terminal tabs go by the session&#x27;s title</li><li>iPhone build 38 (About: rate, send feedback, recommend to a friend)</li><li>Flow film &quot;Claudster to the rescue&quot;: hero script, Flow brief, UI compositor</li><li>Marketing: films re-shot with the redesigned window; Flow script for &quot;Claudster plays&quot;</li></ul>]]></description>
+      <enclosure url="https://github.com/fbmore/claudster-app/releases/download/v1.5.25/Claudster-1.5.25.dmg" type="application/octet-stream"
+        sparkle:edSignature="yY3lsi3pRZwtPuQa7y7QIpdQslQnAqXaWt6G11BT5LX7u6JCm3g/DhP5Imoxo+NLPnF7k/GK5smMobrVlWMMDw==" length="13661101"/>
+    </item>
+    <item>
       <title>Claudster 1.5.24</title>
       <pubDate>Mon, 23 Nov 2026 03:14:24 GMT</pubDate>
       <sparkle:version>202611222212</sparkle:version>
