@@ -6,6 +6,17 @@
     <description>Updates for Claudster for Mac.</description>
     <language>en</language>
     <item>
+      <title>Claudster 1.5.29</title>
+      <pubDate>Fri, 27 Nov 2026 04:16:09 GMT</pubDate>
+      <sparkle:version>202611262314</sparkle:version>
+      <sparkle:shortVersionString>1.5.29</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <sparkle:fullReleaseNotesLink>https://github.com/fbmore/claudster-app/releases/tag/v1.5.29</sparkle:fullReleaseNotesLink>
+      <description><![CDATA[<h3>What's new in 1.5.29</h3><ul><li>Dormant is a setting: 3 hours by default</li><li>Close a session, or every dormant one, from the dashboard</li></ul>]]></description>
+      <enclosure url="https://github.com/fbmore/claudster-app/releases/download/v1.5.29/Claudster-1.5.29.dmg" type="application/octet-stream"
+        sparkle:edSignature="R/3CadbzXdiixTal96vIujYg6BJSnarZku+fN4R+icBAkXye1vIJQH9qxJP50P3nNLKEj6OGdfdF+807vc+QDg==" length="14226887"/>
+    </item>
+    <item>
       <title>Claudster 1.5.28</title>
       <pubDate>Fri, 27 Nov 2026 02:45:02 GMT</pubDate>
       <sparkle:version>202611262142</sparkle:version>
