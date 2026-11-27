@@ -29,13 +29,14 @@
   <div class="wrap">
 
     <h1>Privacy Policy</h1>
-    <p class="updated">Last updated November 22, 2026</p>
-    <p class="lead">Claudster runs on your Mac and, if you use it, on your iPhone or iPad, which talks only to your own Mac. It has no account and no analytics. Away from home the iPhone or iPad reaches your Mac through Claudster's relay, end-to-end encrypted, so the relay can't read what passes through it. Nothing it handles is sent to us, ever.</p>
+    <p class="updated">Last updated November 27, 2026</p>
+    <p class="lead">Claudster runs on your Mac and, if you use it, on your iPhone or iPad, which talks only to your own Mac. It has no account and no analytics. Away from home the iPhone or iPad reaches your Mac through Claudster's relay, end-to-end encrypted, so the relay can't read what passes through it. Nothing it handles is sent to us, ever. The one record kept about you is a Claudster Pro purchase, if you make one, held by RevenueCat under an anonymous identifier.</p>
 
     <div class="summary">
       <strong>In short</strong>
       <ul>
-        <li>We (FRANCESCO BERTOCCI, LLC) collect no data at all: no telemetry, crash reports, usage statistics or update checks.</li>
+        <li>We (FRANCESCO BERTOCCI, LLC) collect no telemetry, crash reports, usage statistics or update checks, and nothing from your sessions.</li>
+        <li>If you buy Claudster Pro in the iPhone or iPad app, RevenueCat keeps the purchase record under a random identifier, so Pro works and can be restored. No name, email or payment details.</li>
         <li>Everything Claudster reads and writes stays on your Mac, in your own project folders, and on your iPhone or iPad if you use the app.</li>
         <li>The dashboard is served by your Mac to your own devices. Other devices need your private link to read it.</li>
       </ul>
@@ -78,7 +79,8 @@
 
     <h2>The iPhone and iPad app</h2>
     <p>The Claudster app for iPhone and iPad shows the same board as the dashboard and lets you send tasks. It connects only to your own Mac, using the same private access key: directly over plain HTTP on your network when the phone is on the same Wi-Fi, and through Claudster's relay when it isn't.</p>
-    <p><strong>The relay, away from home.</strong> Your Mac keeps a connection open to Claudster's relay, which runs on Cloudflare Workers. When your iPhone or iPad isn't on the Mac's network, it connects to the same relay, and the relay passes data between them. Everything between the phone and the Mac is encrypted end to end (AES-GCM) with a fresh key for each connection, derived from the private access key, which never leaves your devices. The relay can't read or change what passes through it. It sees only a random identifier for your Mac, when connections open and close, and how much data passes. It stores nothing except a hash of your Mac's relay secret, and keeps no logs of content. Turn it off in the Mac app's Settings › <strong>Reach this Mac away from home</strong>; the phone then works only on the same Wi-Fi.</p>
+    <p><strong>The relay, away from home.</strong> Your Mac keeps a connection open to Claudster's relay, which runs on Cloudflare Workers. When your iPhone or iPad isn't on the Mac's network, it connects to the same relay, and the relay passes data between them. Everything between the phone and the Mac is encrypted end to end (AES-GCM) with a fresh key for each connection, derived from the private access key, which never leaves your devices. The relay can't read or change what passes through it. It sees only a random identifier for your Mac, the anonymous RevenueCat identifier of your iPhone or iPad (to ask RevenueCat whether it has Claudster Pro), when connections open and close, and how much data passes. It stores nothing except a hash of your Mac's relay secret, and keeps no logs of content. Turn it off in the Mac app's Settings › <strong>Reach this Mac away from home</strong>; the phone then works only on the same Wi-Fi.</p>
+    <p><strong>Claudster Pro purchases.</strong> Reaching your Mac away from home is Claudster Pro, bought in the app through Apple. Apple processes the payment; we never see your payment details. The app uses RevenueCat to check and restore purchases: RevenueCat receives a random identifier made by the app (not your name, email or Apple Account), the purchase receipt from Apple, and basic device information such as the iOS version and region. It is linked to nothing else about you and is not used for tracking or advertising. See <a href="https://www.revenuecat.com/privacy">RevenueCat's privacy policy</a>. Without a purchase, the app only asks RevenueCat which plans are available.</p>
     <p><strong>Finding your Mac through your Keychain.</strong> So your own iPhones and iPads can connect without scanning a QR code, even away from home, the Mac app saves one item in your Keychain, which syncs to your devices through iCloud Keychain: your Mac's name, its network address and port, its private access key and its relay identifier. iCloud Keychain is end-to-end encrypted by Apple: only devices signed in to your Apple Account can read it, not Apple and not us, and only Claudster's own apps can open this item. We never receive it. Turn it off in the Mac app's Settings › <strong>Share this Mac with my iPhones through Keychain</strong>, which deletes the item from all your devices.</p>
     <ul>
       <li><strong>What it keeps on the phone:</strong> the access key, in the device's Keychain on this device only (the phone itself never syncs it; see Keychain above); your Mac's network address and relay identifier; only if you choose <strong>Remember</strong> after unlocking your Mac from the phone, your Mac's login password, in the Keychain on this device only, readable only after Face ID, Touch ID or your passcode, and typed only on that Mac's lock screen; and your settings, such as alerts, haptics, text size and which sessions you follow. Session details (projects, questions, recaps, screenshots) are shown while the app is open and are not saved.</li>
@@ -107,7 +109,7 @@
     <ul>
       <li>The app has no analytics, advertising or tracking identifiers.</li>
       <li>No crash reports or diagnostics sent anywhere.</li>
-      <li>No accounts, names, email addresses or payment details.</li>
+      <li>No accounts, names, email addresses or payment details. Apple handles payments for Claudster Pro.</li>
       <li>No copy of your prompts, code, transcripts or screenshots leaves your devices because of Claudster.</li>
     </ul>
 
@@ -115,6 +117,7 @@
     <ul>
       <li><strong>Claude Code</strong> is made by Anthropic and has its own terms and privacy policy. Claudster only reads the files Claude Code keeps on your Mac and does not change what Claude Code sends to Anthropic.</li>
       <li><strong>Codex</strong> is made by OpenAI and has its own terms and privacy policy. Claudster only adds its hooks and skill and reads what they report; it does not change what Codex sends to OpenAI.</li>
+      <li><strong>RevenueCat</strong> checks and restores Claudster Pro purchases in the iPhone and iPad app, as described above. <a href="https://www.revenuecat.com/privacy">RevenueCat's privacy policy</a> applies to that record.</li>
       <li><strong>GitHub</strong> hosts this website and the downloads. GitHub's privacy statement applies to visiting it.</li>
       <li><strong>This website</strong> counts visits with Foliàire Analytics: pages viewed, how far down a page you scroll and how long you stay. It sets no cookies, keeps a random session identifier in your browser's local storage, collects no personal data and honours Do Not Track. The app itself sends nothing.</li>
       <li>When a Claude Code session asks Claudster's helper to screenshot a web page, the helper opens it in a temporary, private copy of Chrome on your Mac, which is deleted afterwards.</li>
