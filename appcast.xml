@@ -6,6 +6,17 @@
     <description>Updates for Claudster for Mac.</description>
     <language>en</language>
     <item>
+      <title>Claudster 1.5.28</title>
+      <pubDate>Fri, 27 Nov 2026 02:45:02 GMT</pubDate>
+      <sparkle:version>202611262142</sparkle:version>
+      <sparkle:shortVersionString>1.5.28</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <sparkle:fullReleaseNotesLink>https://github.com/fbmore/claudster-app/releases/tag/v1.5.28</sparkle:fullReleaseNotesLink>
+      <description><![CDATA[<h3>What's new in 1.5.28</h3><ul><li>Menu bar shows the sessions that need you</li><li>iPhone build 44 (New Session opens the new session)</li><li>New Session on the iPhone opens the new session</li><li>iPhone build 43 (alerts show the project&#x27;s icon)</li></ul>]]></description>
+      <enclosure url="https://github.com/fbmore/claudster-app/releases/download/v1.5.28/Claudster-1.5.28.dmg" type="application/octet-stream"
+        sparkle:edSignature="CkIC+pODfLaeXx5aKxqx9uVBxpybFuj40edp1li23CUSJXUYlJpbgdSRFCHJzUqpJrvbw6UYnysypgIpqX04AA==" length="14190282"/>
+    </item>
+    <item>
       <title>Claudster 1.5.27</title>
       <pubDate>Thu, 26 Nov 2026 21:51:51 GMT</pubDate>
       <sparkle:version>202611261649</sparkle:version>
